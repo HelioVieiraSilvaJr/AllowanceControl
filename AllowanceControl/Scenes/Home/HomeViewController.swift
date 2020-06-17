@@ -31,11 +31,25 @@ final class HomeViewController: BaseViewController {
         
         let buttonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handlerAddElement))
         navigationItem.rightBarButtonItem = buttonItem
+        
+        let vc = AddParticipantModalViewBuilder().builder()
+        vc.didAddParticipant = { name, nickname in
+            print("==> Name:: \(name ?? "-")")
+            print("==> Nickname:: \(nickname ?? "-")")
+        }
+        present(vc, animated: true, completion: nil)
     }
     
     @objc
     func handlerAddElement() {
         print("==> Add Element..")
+        
+        let vc = AddParticipantModalViewBuilder().builder()
+        vc.didAddParticipant = { name, nickname in
+            print("==> Name:: \(name ?? "-")")
+            print("==> Nickname:: \(nickname ?? "-")")
+        }
+        present(vc, animated: true, completion: nil)
     }
 }
 
