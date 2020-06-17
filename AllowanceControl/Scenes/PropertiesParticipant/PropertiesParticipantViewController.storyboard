@@ -46,6 +46,9 @@
                                                 <state key="normal">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="handlerButtonHistoric:" destination="pmb-g3-cxI" eventType="touchUpInside" id="U1d-ub-WYW"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="0.19327684859154928" colorSpace="custom" customColorSpace="sRGB"/>
@@ -86,6 +89,9 @@
                                                 <state key="normal">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="handlerButtonAddPoints:" destination="pmb-g3-cxI" eventType="touchUpInside" id="XlS-9l-Nbv"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="0.20386773767605634" colorSpace="custom" customColorSpace="sRGB"/>
@@ -126,6 +132,9 @@
                                                 <state key="normal">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="handlerButtonRemovePoints:" destination="pmb-g3-cxI" eventType="touchUpInside" id="M4b-LL-Mqp"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="0.19313930457746478" colorSpace="custom" customColorSpace="sRGB"/>
@@ -166,6 +175,9 @@
                                                 <state key="normal">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="handlerButtonPayPoints:" destination="pmb-g3-cxI" eventType="touchUpInside" id="sA8-in-Fka"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="0.19732064260563381" colorSpace="custom" customColorSpace="sRGB"/>
@@ -206,6 +218,9 @@
                                                 <state key="normal">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="handlerButtonWarn:" destination="pmb-g3-cxI" eventType="touchUpInside" id="96N-Hl-yJV"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="0.20356514084507044" colorSpace="custom" customColorSpace="sRGB"/>

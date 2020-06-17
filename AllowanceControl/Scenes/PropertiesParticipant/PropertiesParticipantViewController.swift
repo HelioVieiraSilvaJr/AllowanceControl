@@ -17,6 +17,7 @@ class PropertiesParticipantViewBuilder {
 
 final class PropertiesParticipantViewController: BaseViewController {
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,4 +31,25 @@ final class PropertiesParticipantViewController: BaseViewController {
     @objc func handlerButtonEdit() {
         print("==> Button Edit")
     }
+    
+    @IBAction func handlerButtonHistoric(_ sender: Any) {
+        print("==> handlerButtonHistoric")
+    }
+    
+    @IBAction func handlerButtonAddPoints(_ sender: Any) {
+        print("==> handlerButtonAddPoints")
+    }
+    
+    @IBAction func handlerButtonRemovePoints(_ sender: Any) {
+        print("==> handlerButtonRemovePoints")
+    }
+    
+    @IBAction func handlerButtonPayPoints(_ sender: Any) {
+        print("==> handlerButtonPayPoints")
+    }
+    
+    @IBAction func handlerButtonWarn(_ sender: Any) {
+        print("==> handlerButtonWarn")
+    }
+    
 }
