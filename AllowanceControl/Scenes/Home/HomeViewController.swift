@@ -35,8 +35,8 @@ final class HomeViewController: BaseViewController {
         
         navigationItem.title = "Gerenciador de pontos"
         
-        let buttonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handlerAddElement))
-        navigationItem.rightBarButtonItem = buttonItem
+        let buttonItemAdd = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handlerAddElement))
+        navigationItem.rightBarButtonItem = buttonItemAdd
     }
     
     //MARK: Actions
@@ -79,6 +79,8 @@ extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let participant = participants[indexPath.row]
         
+        let propertiesViewController = PropertiesParticipantViewBuilder().builder()
+        navigationController?.pushViewController(propertiesViewController, animated: true)
         print("==> Select Participant: \(participant)")
     }
 }
