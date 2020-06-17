@@ -21,6 +21,9 @@
 		BD964EA12499A2C800B49C8A /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD964EA02499A2C800B49C8A /* CustomView.swift */; };
 		BD964EA32499ACC100B49C8A /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD964EA22499ACC100B49C8A /* UIImageView+Extension.swift */; };
 		BD964EA52499AD2100B49C8A /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD964EA42499AD2100B49C8A /* CustomImageView.swift */; };
+		BD964EA82499AF4700B49C8A /* HomeParticipantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD964EA62499AF4700B49C8A /* HomeParticipantCell.swift */; };
+		BD964EA92499AF4700B49C8A /* HomeParticipantCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD964EA72499AF4700B49C8A /* HomeParticipantCell.xib */; };
+		BD964EAC2499B34700B49C8A /* HomeParticipant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD964EAB2499B34700B49C8A /* HomeParticipant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,9 @@
 		BD964EA02499A2C800B49C8A /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		BD964EA22499ACC100B49C8A /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		BD964EA42499AD2100B49C8A /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
+		BD964EA62499AF4700B49C8A /* HomeParticipantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeParticipantCell.swift; sourceTree = "<group>"; };
+		BD964EA72499AF4700B49C8A /* HomeParticipantCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeParticipantCell.xib; sourceTree = "<group>"; };
+		BD964EAB2499B34700B49C8A /* HomeParticipant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeParticipant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +127,7 @@
 		BD964E9024998A6B00B49C8A /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				BD964EAA2499B33500B49C8A /* Model */,
 				BD964E97249992F500B49C8A /* View */,
 				BD964E9124998A8100B49C8A /* HomeViewController.swift */,
 				BD964E9324998A9000B49C8A /* HomeViewController.storyboard */,
@@ -149,6 +156,8 @@
 		BD964E97249992F500B49C8A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BD964EA62499AF4700B49C8A /* HomeParticipantCell.swift */,
+				BD964EA72499AF4700B49C8A /* HomeParticipantCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -169,6 +178,14 @@
 				BD964EA42499AD2100B49C8A /* CustomImageView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		BD964EAA2499B33500B49C8A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BD964EAB2499B34700B49C8A /* HomeParticipant.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +246,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD964EA92499AF4700B49C8A /* HomeParticipantCell.xib in Resources */,
 				BD964E9424998A9000B49C8A /* HomeViewController.storyboard in Resources */,
 				BD964E9C2499938900B49C8A /* AddParticipantModalViewController.storyboard in Resources */,
 				BD964E7F249984BE00B49C8A /* LaunchScreen.storyboard in Resources */,
@@ -248,10 +266,12 @@
 				BD964EA52499AD2100B49C8A /* CustomImageView.swift in Sources */,
 				BD964E89249986B700B49C8A /* BaseViewController.swift in Sources */,
 				BD964EA32499ACC100B49C8A /* UIImageView+Extension.swift in Sources */,
+				BD964EA82499AF4700B49C8A /* HomeParticipantCell.swift in Sources */,
 				BD964E9A2499937000B49C8A /* AddParticipantModalViewController.swift in Sources */,
 				BD964EA12499A2C800B49C8A /* CustomView.swift in Sources */,
 				BD964E8F2499885F00B49C8A /* UIViewController+Extension.swift in Sources */,
 				BD964E70249984BD00B49C8A /* AppDelegate.swift in Sources */,
+				BD964EAC2499B34700B49C8A /* HomeParticipant.swift in Sources */,
 				BD964E9224998A8100B49C8A /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

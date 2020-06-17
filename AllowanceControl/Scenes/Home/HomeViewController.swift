@@ -16,14 +16,20 @@ class HomeViewBuilder {
 }
 
 final class HomeViewController: BaseViewController {
+    
+    //MARK: Properties
+    var participants: [HomePartipant] = []
 
+    //MARK: Outlets
     @IBOutlet weak var tableView: UITableView! {
         didSet{
+            tableView.register(UINib(nibName: HomeParticipantCell.identifier, bundle: nil), forCellReuseIdentifier: HomeParticipantCell.identifier)
             tableView.dataSource = self
             tableView.delegate = self
         }
     }
     
+    //MARK: Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,42 +37,48 @@ final class HomeViewController: BaseViewController {
         
         let buttonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handlerAddElement))
         navigationItem.rightBarButtonItem = buttonItem
-        
+    }
+    
+    //MARK: Actions
+    @objc
+    func handlerAddElement() {
         let vc = AddParticipantModalViewBuilder().builder()
-        vc.didAddParticipant = { name, nickname in
-            print("==> Name:: \(name ?? "-")")
-            print("==> Nickname:: \(nickname ?? "-")")
+        vc.didAddParticipant = { [weak self] participant in
+            self?.participants.append(participant)
+            self?.reloadTable()
         }
         present(vc, animated: true, completion: nil)
     }
     
-    @objc
-    func handlerAddElement() {
-        print("==> Add Element..")
-        
-        let vc = AddParticipantModalViewBuilder().builder()
-        vc.didAddParticipant = { name, nickname in
-            print("==> Name:: \(name ?? "-")")
-            print("==> Nickname:: \(nickname ?? "-")")
+    //MARK: Helpers
+    func reloadTable() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
         }
-        present(vc, animated: true, completion: nil)
     }
 }
 
+//MARK: Extensions
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return participants.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let participant = participants[indexPath.row]
         
-        
+        if let cell = tableView.dequeueReusableCell(withIdentifier: HomeParticipantCell.identifier, for: indexPath) as? HomeParticipantCell {
+            cell.setup(with: participant)
+            return cell
+        }
         return UITableViewCell()
     }
 }
 
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("==> Select Index: \(indexPath.row)")
+        let participant = participants[indexPath.row]
+        
+        print("==> Select Participant: \(participant)")
     }
 }
