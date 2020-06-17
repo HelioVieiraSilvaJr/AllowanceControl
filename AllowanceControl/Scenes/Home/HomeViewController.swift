@@ -34,8 +34,9 @@ final class HomeViewController: BaseViewController {
         super.viewDidLoad()
         navigationItem.title = "Gerenciador de pontos"
         
+        let buttonItemTest = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(test))
         let buttonItemAdd = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handlerAddElement))
-        navigationItem.rightBarButtonItem = buttonItemAdd
+        navigationItem.rightBarButtonItems = [buttonItemAdd, buttonItemTest]
         
         refreshData()
     }
@@ -45,7 +46,7 @@ final class HomeViewController: BaseViewController {
         let vc = AddParticipantModalViewBuilder().builder()
         vc.didAddParticipant = { [weak self] participant in
             self?.participants.append(participant)
-            RemoteDatabase.shared.testAddData(name: participant.name, nickname: participant.nickname)
+            RemoteDatabase.shared.addNewParticipant(participant)
             self?.refreshData()
         }
         present(vc, animated: true, completion: nil)
@@ -56,6 +57,18 @@ final class HomeViewController: BaseViewController {
             self?.participants = participants
             self?.reloadTable()
         }
+    }
+    
+    @objc func test() {
+//        refreshData()
+
+        print("\n\n --------------- Participants -------------")
+        participants.forEach{ participant in
+            print("--> \(participant)")
+        }
+        
+//        RemoteDatabase.shared.testRead(id: "EjpfeBqgZ2vQZsIgxnIZ")
+        RemoteDatabase.shared.testUpdate(id: "EjpfeBqgZ2vQZsIgxnIZ")
     }
     
     //MARK: Helpers
@@ -87,7 +100,10 @@ extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let participant = participants[indexPath.row]
-        let propertiesViewController = PropertiesParticipantViewBuilder().builder(withParticipant: participant)
-        navigationController?.pushViewController(propertiesViewController, animated: true)
+        let viewController = PropertiesParticipantViewBuilder().builder(withParticipant: participant)
+        viewController.shouldUpdateData = { [weak self] in
+            self?.refreshData()
+        }
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }

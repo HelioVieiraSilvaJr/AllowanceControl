@@ -20,6 +20,7 @@ final class PropertiesParticipantViewController: BaseViewController {
     
     //MARK: Properties
     var participant: HomeParticipant!
+    var shouldUpdateData: (() -> Void)?
     
     //MARK: Overrides
     override func viewDidLoad() {
@@ -40,11 +41,15 @@ final class PropertiesParticipantViewController: BaseViewController {
     }
     
     @IBAction func handlerButtonAddPoints(_ sender: Any) {
-        print("==> handlerButtonAddPoints")
+        let viewController = ChangePointsModalViewBuilder().builder(changeType: .addPoints)
+        viewController.didChangeCompletion = didChangePoints
+        present(viewController, animated: true, completion: nil)
     }
     
     @IBAction func handlerButtonRemovePoints(_ sender: Any) {
-        print("==> handlerButtonRemovePoints")
+        let viewController = ChangePointsModalViewBuilder().builder(changeType: .removePoints)
+        viewController.didChangeCompletion = didChangePoints
+        present(viewController, animated: true, completion: nil)
     }
     
     @IBAction func handlerButtonPayPoints(_ sender: Any) {
@@ -52,7 +57,34 @@ final class PropertiesParticipantViewController: BaseViewController {
     }
     
     @IBAction func handlerButtonWarn(_ sender: Any) {
-        print("==> handlerButtonWarn")
+        let viewController = ChangePointsModalViewBuilder().builder(changeType: .warning)
+        viewController.didChangeCompletion = didChangePoints
+        present(viewController, animated: true, completion: nil)
     }
     
+    //MARK: Helpers
+    private func didChangePoints(_ changePoint: HomeParticipant.Timeline) {
+        guard let id = participant.id else { return }
+        participant.timeline?.append(changePoint)
+        var changePoint = changePoint
+        
+        switch changePoint.type {
+        case .addPoints:
+            participant.points += changePoint.points
+            
+        case .removePoints:
+            participant.points -= changePoint.points
+            
+        case .warning:
+            changePoint.points = 0
+            break
+        }
+        
+        changePoint.resultPoints = participant.points
+        changePoint.date = Date().description
+        RemoteDatabase.shared.updatePoints(participant: participant)
+        RemoteDatabase.shared.addTimeline(id: id, timeline: changePoint)
+        shouldUpdateData?()
+        navigationController?.popViewController(animated: true)
+    }
 }

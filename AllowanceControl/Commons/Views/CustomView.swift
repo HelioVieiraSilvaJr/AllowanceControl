@@ -27,7 +27,21 @@ final class CustomView: UIView {
         }
     }
     
+    @IBInspectable var borderWidth: CGFloat = 0 {
+        didSet {
+            updateUI()
+        }
+    }
+    
+    @IBInspectable var borderColor: UIColor = .gray {
+        didSet {
+            updateUI()
+        }
+    }
+    
     func updateUI() {
         layer.cornerRadius = corner
+        layer.borderWidth = borderWidth
+        layer.borderColor = borderColor.cgColor
     }
 }
