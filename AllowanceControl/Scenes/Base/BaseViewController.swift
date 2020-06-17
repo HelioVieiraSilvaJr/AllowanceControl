@@ -13,5 +13,8 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let backButton = UIBarButtonItem()
+        backButton.title = "voltar"
+        navigationItem.backBarButtonItem = backButton
     }
 }

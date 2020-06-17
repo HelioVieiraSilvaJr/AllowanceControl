@@ -29,6 +29,11 @@ final class AddParticipantModalViewController: BaseViewController {
     //MARK: Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        edtFullName.becomeFirstResponder()
+        
+        edtFullName.text = "Helio"
+        edtNickname.text = "Helio"
     }
     
     //MARK: Actions

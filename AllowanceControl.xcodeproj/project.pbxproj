@@ -24,6 +24,8 @@
 		BD964EA82499AF4700B49C8A /* HomeParticipantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD964EA62499AF4700B49C8A /* HomeParticipantCell.swift */; };
 		BD964EA92499AF4700B49C8A /* HomeParticipantCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD964EA72499AF4700B49C8A /* HomeParticipantCell.xib */; };
 		BD964EAC2499B34700B49C8A /* HomeParticipant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD964EAB2499B34700B49C8A /* HomeParticipant.swift */; };
+		BD964EAF2499BACD00B49C8A /* PropertiesParticipantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD964EAE2499BACD00B49C8A /* PropertiesParticipantViewController.swift */; };
+		BD964EB12499BAD400B49C8A /* PropertiesParticipantViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD964EB02499BAD400B49C8A /* PropertiesParticipantViewController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		BD964EA62499AF4700B49C8A /* HomeParticipantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeParticipantCell.swift; sourceTree = "<group>"; };
 		BD964EA72499AF4700B49C8A /* HomeParticipantCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeParticipantCell.xib; sourceTree = "<group>"; };
 		BD964EAB2499B34700B49C8A /* HomeParticipant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeParticipant.swift; sourceTree = "<group>"; };
+		BD964EAE2499BACD00B49C8A /* PropertiesParticipantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertiesParticipantViewController.swift; sourceTree = "<group>"; };
+		BD964EB02499BAD400B49C8A /* PropertiesParticipantViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PropertiesParticipantViewController.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,9 +94,10 @@
 		BD964E862499868F00B49C8A /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				BD964E982499931D00B49C8A /* AddParticipantModal */,
-				BD964E9024998A6B00B49C8A /* Home */,
 				BD964E87249986A800B49C8A /* Base */,
+				BD964E9024998A6B00B49C8A /* Home */,
+				BD964E982499931D00B49C8A /* AddParticipantModal */,
+				BD964EAD2499BA7E00B49C8A /* PropertiesParticipant */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -188,6 +193,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		BD964EAD2499BA7E00B49C8A /* PropertiesParticipant */ = {
+			isa = PBXGroup;
+			children = (
+				BD964EAE2499BACD00B49C8A /* PropertiesParticipantViewController.swift */,
+				BD964EB02499BAD400B49C8A /* PropertiesParticipantViewController.storyboard */,
+			);
+			path = PropertiesParticipant;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -249,6 +263,7 @@
 				BD964EA92499AF4700B49C8A /* HomeParticipantCell.xib in Resources */,
 				BD964E9424998A9000B49C8A /* HomeViewController.storyboard in Resources */,
 				BD964E9C2499938900B49C8A /* AddParticipantModalViewController.storyboard in Resources */,
+				BD964EB12499BAD400B49C8A /* PropertiesParticipantViewController.storyboard in Resources */,
 				BD964E7F249984BE00B49C8A /* LaunchScreen.storyboard in Resources */,
 				BD964E7C249984BE00B49C8A /* Assets.xcassets in Resources */,
 				BD964E8B2499870600B49C8A /* BaseViewController.storyboard in Resources */,
@@ -265,6 +280,7 @@
 				BD964E7A249984BD00B49C8A /* AllowanceControl.xcdatamodeld in Sources */,
 				BD964EA52499AD2100B49C8A /* CustomImageView.swift in Sources */,
 				BD964E89249986B700B49C8A /* BaseViewController.swift in Sources */,
+				BD964EAF2499BACD00B49C8A /* PropertiesParticipantViewController.swift in Sources */,
 				BD964EA32499ACC100B49C8A /* UIImageView+Extension.swift in Sources */,
 				BD964EA82499AF4700B49C8A /* HomeParticipantCell.swift in Sources */,
 				BD964E9A2499937000B49C8A /* AddParticipantModalViewController.swift in Sources */,
