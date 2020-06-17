@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02B3A892B03ED82E66B44F49 /* Pods_AllowanceControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB6676F5A7D09360C841C4DB /* Pods_AllowanceControl.framework */; };
 		BD964E70249984BD00B49C8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD964E6F249984BD00B49C8A /* AppDelegate.swift */; };
 		BD964E7A249984BD00B49C8A /* AllowanceControl.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BD964E78249984BD00B49C8A /* AllowanceControl.xcdatamodeld */; };
 		BD964E7C249984BE00B49C8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD964E7B249984BE00B49C8A /* Assets.xcassets */; };
@@ -26,9 +27,14 @@
 		BD964EAC2499B34700B49C8A /* HomeParticipant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD964EAB2499B34700B49C8A /* HomeParticipant.swift */; };
 		BD964EAF2499BACD00B49C8A /* PropertiesParticipantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD964EAE2499BACD00B49C8A /* PropertiesParticipantViewController.swift */; };
 		BD964EB12499BAD400B49C8A /* PropertiesParticipantViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD964EB02499BAD400B49C8A /* PropertiesParticipantViewController.storyboard */; };
+		BD964EB32499D5B700B49C8A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD964EB22499D5B700B49C8A /* GoogleService-Info.plist */; };
+		BD964EB62499DBF200B49C8A /* RemoteDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD964EB52499DBF200B49C8A /* RemoteDatabase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		665E4AA7A6812333F2D0B484 /* Pods-AllowanceControl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AllowanceControl.release.xcconfig"; path = "Target Support Files/Pods-AllowanceControl/Pods-AllowanceControl.release.xcconfig"; sourceTree = "<group>"; };
+		AE8981077FDC5DD35AA0AFD2 /* Pods-AllowanceControl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AllowanceControl.debug.xcconfig"; path = "Target Support Files/Pods-AllowanceControl/Pods-AllowanceControl.debug.xcconfig"; sourceTree = "<group>"; };
+		BB6676F5A7D09360C841C4DB /* Pods_AllowanceControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AllowanceControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD964E6C249984BD00B49C8A /* AllowanceControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AllowanceControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD964E6F249984BD00B49C8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD964E79249984BD00B49C8A /* AllowanceControl.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AllowanceControl.xcdatamodel; sourceTree = "<group>"; };
@@ -50,6 +56,8 @@
 		BD964EAB2499B34700B49C8A /* HomeParticipant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeParticipant.swift; sourceTree = "<group>"; };
 		BD964EAE2499BACD00B49C8A /* PropertiesParticipantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertiesParticipantViewController.swift; sourceTree = "<group>"; };
 		BD964EB02499BAD400B49C8A /* PropertiesParticipantViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PropertiesParticipantViewController.storyboard; sourceTree = "<group>"; };
+		BD964EB22499D5B700B49C8A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BD964EB52499DBF200B49C8A /* RemoteDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDatabase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,17 +65,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02B3A892B03ED82E66B44F49 /* Pods_AllowanceControl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F13D658811C7C9C6F8CE4D7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BB6676F5A7D09360C841C4DB /* Pods_AllowanceControl.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6A4B2FC619955368C9968B99 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AE8981077FDC5DD35AA0AFD2 /* Pods-AllowanceControl.debug.xcconfig */,
+				665E4AA7A6812333F2D0B484 /* Pods-AllowanceControl.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		BD964E63249984BD00B49C8A = {
 			isa = PBXGroup;
 			children = (
 				BD964E6E249984BD00B49C8A /* AllowanceControl */,
 				BD964E6D249984BD00B49C8A /* Products */,
+				6A4B2FC619955368C9968B99 /* Pods */,
+				4F13D658811C7C9C6F8CE4D7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -151,9 +179,11 @@
 		BD964E9624998C5600B49C8A /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				BD964EB42499DBD400B49C8A /* RemoteDatabase */,
 				BD964E6F249984BD00B49C8A /* AppDelegate.swift */,
 				BD964E80249984BE00B49C8A /* Info.plist */,
 				BD964E7D249984BE00B49C8A /* LaunchScreen.storyboard */,
+				BD964EB22499D5B700B49C8A /* GoogleService-Info.plist */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -202,6 +232,14 @@
 			path = PropertiesParticipant;
 			sourceTree = "<group>";
 		};
+		BD964EB42499DBD400B49C8A /* RemoteDatabase */ = {
+			isa = PBXGroup;
+			children = (
+				BD964EB52499DBF200B49C8A /* RemoteDatabase.swift */,
+			);
+			path = RemoteDatabase;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -209,9 +247,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BD964E83249984BE00B49C8A /* Build configuration list for PBXNativeTarget "AllowanceControl" */;
 			buildPhases = (
+				C1C4F071EEB4AB1200C08D8B /* [CP] Check Pods Manifest.lock */,
 				BD964E68249984BD00B49C8A /* Sources */,
 				BD964E69249984BD00B49C8A /* Frameworks */,
 				BD964E6A249984BD00B49C8A /* Resources */,
+				FE5DBD784EB4E3ABF21669E7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -261,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD964EA92499AF4700B49C8A /* HomeParticipantCell.xib in Resources */,
+				BD964EB32499D5B700B49C8A /* GoogleService-Info.plist in Resources */,
 				BD964E9424998A9000B49C8A /* HomeViewController.storyboard in Resources */,
 				BD964E9C2499938900B49C8A /* AddParticipantModalViewController.storyboard in Resources */,
 				BD964EB12499BAD400B49C8A /* PropertiesParticipantViewController.storyboard in Resources */,
@@ -272,12 +313,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C1C4F071EEB4AB1200C08D8B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AllowanceControl-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FE5DBD784EB4E3ABF21669E7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AllowanceControl/Pods-AllowanceControl-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AllowanceControl/Pods-AllowanceControl-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AllowanceControl/Pods-AllowanceControl-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BD964E68249984BD00B49C8A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				BD964E7A249984BD00B49C8A /* AllowanceControl.xcdatamodeld in Sources */,
+				BD964EB62499DBF200B49C8A /* RemoteDatabase.swift in Sources */,
 				BD964EA52499AD2100B49C8A /* CustomImageView.swift in Sources */,
 				BD964E89249986B700B49C8A /* BaseViewController.swift in Sources */,
 				BD964EAF2499BACD00B49C8A /* PropertiesParticipantViewController.swift in Sources */,
@@ -422,6 +506,7 @@
 		};
 		BD964E84249984BE00B49C8A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE8981077FDC5DD35AA0AFD2 /* Pods-AllowanceControl.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -440,6 +525,7 @@
 		};
 		BD964E85249984BE00B49C8A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 665E4AA7A6812333F2D0B484 /* Pods-AllowanceControl.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

@@ -18,7 +18,7 @@ class HomeViewBuilder {
 final class HomeViewController: BaseViewController {
     
     //MARK: Properties
-    var participants: [HomePartipant] = []
+    var participants: [HomeParticipant] = []
 
     //MARK: Outlets
     @IBOutlet weak var tableView: UITableView! {
@@ -32,22 +32,30 @@ final class HomeViewController: BaseViewController {
     //MARK: Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         navigationItem.title = "Gerenciador de pontos"
         
         let buttonItemAdd = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handlerAddElement))
         navigationItem.rightBarButtonItem = buttonItemAdd
+        
+        refreshData()
     }
     
     //MARK: Actions
-    @objc
-    func handlerAddElement() {
+    @objc func handlerAddElement() {
         let vc = AddParticipantModalViewBuilder().builder()
         vc.didAddParticipant = { [weak self] participant in
             self?.participants.append(participant)
-            self?.reloadTable()
+            RemoteDatabase.shared.testAddData(name: participant.name, nickname: participant.nickname)
+            self?.refreshData()
         }
         present(vc, animated: true, completion: nil)
+    }
+    
+    func refreshData() {
+        RemoteDatabase.shared.fetchParticipants { [weak self] participants in
+            self?.participants = participants
+            self?.reloadTable()
+        }
     }
     
     //MARK: Helpers
@@ -77,10 +85,9 @@ extension HomeViewController: UITableViewDataSource {
 
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let participant = participants[indexPath.row]
         
-        let propertiesViewController = PropertiesParticipantViewBuilder().builder()
+        let participant = participants[indexPath.row]
+        let propertiesViewController = PropertiesParticipantViewBuilder().builder(withParticipant: participant)
         navigationController?.pushViewController(propertiesViewController, animated: true)
-        print("==> Select Participant: \(participant)")
     }
 }

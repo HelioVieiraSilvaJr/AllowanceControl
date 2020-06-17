@@ -7,9 +7,12 @@
 //
 
 import Foundation
+import FirebaseFirestoreSwift
 
-struct HomePartipant: Codable {
-    var fullName: String
+struct HomeParticipant: Identifiable, Codable {
+
+    @DocumentID var id: String?
+    var name: String
     var nickname: String
     var points: Int
 }
