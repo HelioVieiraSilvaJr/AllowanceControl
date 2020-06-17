@@ -16,25 +16,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GUILO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kfa-6r-Uo1">
-                                <rect key="frame" x="107" y="348" width="200" height="200"/>
-                                <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="UEu-Vq-WPt"/>
-                                    <constraint firstAttribute="height" constant="200" id="a8O-P0-2TI"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QNP-jD-S1v">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Kfa-6r-Uo1" firstAttribute="centerY" secondItem="zdT-hT-6EV" secondAttribute="centerY" id="Gzv-SE-nUc"/>
-                            <constraint firstItem="Kfa-6r-Uo1" firstAttribute="centerX" secondItem="zdT-hT-6EV" secondAttribute="centerX" id="Y3K-Dz-0Ks"/>
+                            <constraint firstItem="QNP-jD-S1v" firstAttribute="top" secondItem="Xaq-ev-LpE" secondAttribute="top" id="DEU-lK-dmh"/>
+                            <constraint firstItem="Xaq-ev-LpE" firstAttribute="bottom" secondItem="QNP-jD-S1v" secondAttribute="bottom" id="DVc-z6-iRn"/>
+                            <constraint firstItem="QNP-jD-S1v" firstAttribute="leading" secondItem="Xaq-ev-LpE" secondAttribute="leading" id="eGs-1c-bBP"/>
+                            <constraint firstItem="Xaq-ev-LpE" firstAttribute="trailing" secondItem="QNP-jD-S1v" secondAttribute="trailing" id="uv9-YC-bIk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Xaq-ev-LpE"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="QNP-jD-S1v" id="Wr2-OL-IG8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IHH-bF-Viw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
