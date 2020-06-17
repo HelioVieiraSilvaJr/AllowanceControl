@@ -9,19 +9,22 @@
 import UIKit
 
 class PropertiesParticipantViewBuilder {
-    func builder() -> PropertiesParticipantViewController {
+    func builder(withParticipant participant: HomeParticipant) -> PropertiesParticipantViewController {
         let viewController = PropertiesParticipantViewController.instantiate()
+        viewController.participant = participant
         return viewController
     }
 }
 
 final class PropertiesParticipantViewController: BaseViewController {
     
+    //MARK: Properties
+    var participant: HomeParticipant!
     
+    //MARK: Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationItem.title = "propriedades"
+        navigationItem.title = participant.name
         
         let buttonItemEdit = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(handlerButtonEdit))
         navigationItem.rightBarButtonItem = buttonItemEdit

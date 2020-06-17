@@ -20,7 +20,7 @@ class AddParticipantModalViewBuilder {
 final class AddParticipantModalViewController: BaseViewController {
 
     //MARK: Properties
-    var didAddParticipant: ((HomePartipant) -> Void)?
+    var didAddParticipant: ((HomeParticipant) -> Void)?
     
     //MARK: Outlets
     @IBOutlet weak var edtFullName: UITextField!
@@ -40,7 +40,7 @@ final class AddParticipantModalViewController: BaseViewController {
     @IBAction func handlerButtonDone(_ sender: Any) {
         guard validateFields() else { return }
         
-        let newParticipant = HomePartipant(fullName: edtFullName.text!, nickname: edtNickname.text!, points: 0)
+        let newParticipant = HomeParticipant(name: edtFullName.text!, nickname: edtNickname.text!, points: 0)
         didAddParticipant?(newParticipant)
         dismiss(animated: true, completion: nil)
     }

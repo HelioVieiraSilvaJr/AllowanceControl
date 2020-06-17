@@ -20,7 +20,7 @@ class HomeParticipantCell: UITableViewCell {
         selectionStyle = .none
     }
     
-    func setup(with participant: HomePartipant) {
+    func setup(with participant: HomeParticipant) {
         lblName.text = participant.nickname
         lblPoints.text = participant.points.description
     }

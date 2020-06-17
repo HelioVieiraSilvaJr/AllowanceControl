@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -28,6 +28,7 @@
 		BD964EAF2499BACD00B49C8A /* PropertiesParticipantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD964EAE2499BACD00B49C8A /* PropertiesParticipantViewController.swift */; };
 		BD964EB12499BAD400B49C8A /* PropertiesParticipantViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD964EB02499BAD400B49C8A /* PropertiesParticipantViewController.storyboard */; };
 		BD964EB32499D5B700B49C8A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD964EB22499D5B700B49C8A /* GoogleService-Info.plist */; };
+		BD964EB62499DBF200B49C8A /* RemoteDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD964EB52499DBF200B49C8A /* RemoteDatabase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		BD964EAE2499BACD00B49C8A /* PropertiesParticipantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertiesParticipantViewController.swift; sourceTree = "<group>"; };
 		BD964EB02499BAD400B49C8A /* PropertiesParticipantViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PropertiesParticipantViewController.storyboard; sourceTree = "<group>"; };
 		BD964EB22499D5B700B49C8A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BD964EB52499DBF200B49C8A /* RemoteDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDatabase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +86,6 @@
 				AE8981077FDC5DD35AA0AFD2 /* Pods-AllowanceControl.debug.xcconfig */,
 				665E4AA7A6812333F2D0B484 /* Pods-AllowanceControl.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -178,6 +179,7 @@
 		BD964E9624998C5600B49C8A /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				BD964EB42499DBD400B49C8A /* RemoteDatabase */,
 				BD964E6F249984BD00B49C8A /* AppDelegate.swift */,
 				BD964E80249984BE00B49C8A /* Info.plist */,
 				BD964E7D249984BE00B49C8A /* LaunchScreen.storyboard */,
@@ -228,6 +230,14 @@
 				BD964EB02499BAD400B49C8A /* PropertiesParticipantViewController.storyboard */,
 			);
 			path = PropertiesParticipant;
+			sourceTree = "<group>";
+		};
+		BD964EB42499DBD400B49C8A /* RemoteDatabase */ = {
+			isa = PBXGroup;
+			children = (
+				BD964EB52499DBF200B49C8A /* RemoteDatabase.swift */,
+			);
+			path = RemoteDatabase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -351,6 +361,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD964E7A249984BD00B49C8A /* AllowanceControl.xcdatamodeld in Sources */,
+				BD964EB62499DBF200B49C8A /* RemoteDatabase.swift in Sources */,
 				BD964EA52499AD2100B49C8A /* CustomImageView.swift in Sources */,
 				BD964E89249986B700B49C8A /* BaseViewController.swift in Sources */,
 				BD964EAF2499BACD00B49C8A /* PropertiesParticipantViewController.swift in Sources */,

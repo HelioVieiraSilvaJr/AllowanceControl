@@ -7,5 +7,8 @@ target 'AllowanceControl' do
 
   # Pods for AllowanceControl
   pod 'Firebase/Analytics'
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
+  pod 'FirebaseFirestoreSwift'
   
 end
