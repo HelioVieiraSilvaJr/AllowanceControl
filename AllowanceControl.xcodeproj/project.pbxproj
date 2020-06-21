@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		02B3A892B03ED82E66B44F49 /* Pods_AllowanceControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB6676F5A7D09360C841C4DB /* Pods_AllowanceControl.framework */; };
+		BD4C80FA249FDF5500AB67C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C80F9249FDF5500AB67C3 /* SceneDelegate.swift */; };
+		BD4C80FC249FE16400AB67C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD4C80FB249FE16400AB67C3 /* Main.storyboard */; };
 		BD964E70249984BD00B49C8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD964E6F249984BD00B49C8A /* AppDelegate.swift */; };
 		BD964E7A249984BD00B49C8A /* AllowanceControl.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BD964E78249984BD00B49C8A /* AllowanceControl.xcdatamodeld */; };
 		BD964E7C249984BE00B49C8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD964E7B249984BE00B49C8A /* Assets.xcassets */; };
@@ -38,6 +40,8 @@
 		665E4AA7A6812333F2D0B484 /* Pods-AllowanceControl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AllowanceControl.release.xcconfig"; path = "Target Support Files/Pods-AllowanceControl/Pods-AllowanceControl.release.xcconfig"; sourceTree = "<group>"; };
 		AE8981077FDC5DD35AA0AFD2 /* Pods-AllowanceControl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AllowanceControl.debug.xcconfig"; path = "Target Support Files/Pods-AllowanceControl/Pods-AllowanceControl.debug.xcconfig"; sourceTree = "<group>"; };
 		BB6676F5A7D09360C841C4DB /* Pods_AllowanceControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AllowanceControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD4C80F9249FDF5500AB67C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		BD4C80FB249FE16400AB67C3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		BD964E6C249984BD00B49C8A /* AllowanceControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AllowanceControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD964E6F249984BD00B49C8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD964E79249984BD00B49C8A /* AllowanceControl.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AllowanceControl.xcdatamodel; sourceTree = "<group>"; };
@@ -189,8 +193,10 @@
 			children = (
 				BD964EB42499DBD400B49C8A /* RemoteDatabase */,
 				BD964E6F249984BD00B49C8A /* AppDelegate.swift */,
+				BD4C80F9249FDF5500AB67C3 /* SceneDelegate.swift */,
 				BD964E80249984BE00B49C8A /* Info.plist */,
 				BD964E7D249984BE00B49C8A /* LaunchScreen.storyboard */,
+				BD4C80FB249FE16400AB67C3 /* Main.storyboard */,
 				BD964EB22499D5B700B49C8A /* GoogleService-Info.plist */,
 			);
 			path = Sources;
@@ -318,6 +324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD964EA92499AF4700B49C8A /* HomeParticipantCell.xib in Resources */,
+				BD4C80FC249FE16400AB67C3 /* Main.storyboard in Resources */,
 				BD964EB32499D5B700B49C8A /* GoogleService-Info.plist in Resources */,
 				BD964E9424998A9000B49C8A /* HomeViewController.storyboard in Resources */,
 				BD964E9C2499938900B49C8A /* AddParticipantModalViewController.storyboard in Resources */,
@@ -385,6 +392,7 @@
 				BD964E89249986B700B49C8A /* BaseViewController.swift in Sources */,
 				BD964EAF2499BACD00B49C8A /* PropertiesParticipantViewController.swift in Sources */,
 				BD964EA32499ACC100B49C8A /* UIImageView+Extension.swift in Sources */,
+				BD4C80FA249FDF5500AB67C3 /* SceneDelegate.swift in Sources */,
 				BD964EA82499AF4700B49C8A /* HomeParticipantCell.swift in Sources */,
 				BD964E9A2499937000B49C8A /* AddParticipantModalViewController.swift in Sources */,
 				BD964EA12499A2C800B49C8A /* CustomView.swift in Sources */,
@@ -530,6 +538,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6K3965APXT;
 				INFOPLIST_FILE = AllowanceControl/Sources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -549,6 +558,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6K3965APXT;
 				INFOPLIST_FILE = AllowanceControl/Sources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (

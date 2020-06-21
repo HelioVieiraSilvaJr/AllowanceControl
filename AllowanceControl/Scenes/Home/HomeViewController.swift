@@ -35,8 +35,10 @@ final class HomeViewController: BaseViewController {
         navigationItem.title = "Gerenciador de pontos"
         
         let buttonItemTest = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(test))
+        let buttonItemTest2 = UIBarButtonItem(barButtonSystemItem: .play, target: self, action: #selector(test2))
+        
         let buttonItemAdd = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handlerAddElement))
-        navigationItem.rightBarButtonItems = [buttonItemAdd, buttonItemTest]
+        navigationItem.rightBarButtonItems = [buttonItemAdd, buttonItemTest, buttonItemTest2]
         
         refreshData()
     }
@@ -60,15 +62,11 @@ final class HomeViewController: BaseViewController {
     }
     
     @objc func test() {
-//        refreshData()
-
-        print("\n\n --------------- Participants -------------")
-        participants.forEach{ participant in
-            print("--> \(participant)")
-        }
-        
-//        RemoteDatabase.shared.testRead(id: "EjpfeBqgZ2vQZsIgxnIZ")
-        RemoteDatabase.shared.testUpdate(id: "EjpfeBqgZ2vQZsIgxnIZ")
+        RemoteDatabase.shared.test1()
+    }
+    
+    @objc func test2() {
+        RemoteDatabase.shared.test2()
     }
     
     //MARK: Helpers
