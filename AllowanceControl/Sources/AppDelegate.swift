@@ -18,12 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        FirebaseApp.configure()
+        
         window = UIWindow()
-        let viewController = HomeViewBuilder().builder()
+        let viewController = HomeViewController.builder()
         let navController = UINavigationController(rootViewController: viewController)
         window?.rootViewController = navController
         
-        FirebaseApp.configure()
         
         return true
     }

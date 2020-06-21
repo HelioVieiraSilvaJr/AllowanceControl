@@ -11,10 +11,16 @@ import Foundation
 final class HomeViewModel {
     
     // MARK: Properties
-    var participants: [Child] = []
+    var children: [Child] = []
+    var shouldReloadHome: (() -> ())?
+    
+    let database = HomeDatabase()
     
     func fetchData() {
-        
+        database.fetchChildren { [weak self] children in
+            self?.children = children
+            self?.shouldReloadHome?()
+        }
     }
     
 }

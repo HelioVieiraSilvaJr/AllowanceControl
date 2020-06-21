@@ -13,7 +13,7 @@ class RemoteDatabase {
     static let shared = RemoteDatabase()
     let db = Firestore.firestore()
     let collectionParents: CollectionReference!
-    let collectionChields: CollectionReference!
+    let collectionChildren: CollectionReference!
     
     let parent = "helio@gmail.com"
     var data: [String: Any]? {
@@ -36,36 +36,7 @@ class RemoteDatabase {
     
     init() {
         collectionParents = db.collection("parents")
-        collectionChields = collectionParents.document(parent).collection("chields")
-        
-        db.collection("parents").document("helio@gmail.com")
-        .addSnapshotListener { documentSnapshot, error in
-            guard let document = documentSnapshot else {
-                print("==> Error fetching document: \(error!)")
-                return
-            }
-            let source = document.metadata.hasPendingWrites ? "Local" : "Server"
-            print("==> \(source) data: \(document.data() ?? [:])")
-            self.data = document.data()
-        }
-    }
-    
-    func fetchParticipants(completion: @escaping ([Child]) -> Void) {
-        db.collection("users").getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                var participants = [Child]()
-                guard let documents = querySnapshot?.documents else {
-                    print("==> No documents")
-                    return
-                }
-                participants = documents.compactMap { queryDocumentSnapshot -> Child? in
-                    return try? queryDocumentSnapshot.data(as: Child.self)
-                }
-                completion(participants)
-            }
-        }
+        collectionChildren = collectionParents.document(parent).collection("children")
     }
     
     func addNewParticipant(_ participant: Child) {
@@ -81,17 +52,17 @@ class RemoteDatabase {
         }
     }
     
-    func updatePoints(participant: Child) {
-        guard let id = participant.id else {return}
-        // Add a new document with a generated ID
-        db.collection("users").document(id).updateData([
-            "points": participant.points
-        ]) { err in
-            if let err = err {
-                print("Error adding document: \(err)")
-            }
-        }
-    }
+//    func updatePoints(participant: Child) {
+//        guard let id = participant.id else {return}
+//        // Add a new document with a generated ID
+//        db.collection("users").document(id).updateData([
+//            "points": participant.points
+//        ]) { err in
+//            if let err = err {
+//                print("Error adding document: \(err)")
+//            }
+//        }
+//    }
     
     func addTimeline(id: String, timeline: Child.Timeline) {
         do {
@@ -182,18 +153,18 @@ class RemoteDatabase {
 //            ]
 //            ])
         
-//        collectionParents.document(parent).collection(collectionChields).addDocument(data: [
-//        "name": "Guilherme Negrão",
-//        "nickname": "Gui",
-//        "timeline": [
-//            [
-//                "date": Date().description,
-//                "description": "Participante adicionado!",
-//                "points": 0,
-//                "type": "fisrt"
-//            ]
-//        ]
-//        ])
+        collectionChildren.addDocument(data: [
+        "name": "Heloiza Negrão",
+        "nickname": "Helo",
+        "timeline": [
+            [
+                "date": Date().description,
+                "description": "Participante adicionado!",
+                "points": 0,
+                "type": "fisrt"
+            ]
+        ]
+        ])
     }
     
     func test2() {
@@ -218,7 +189,7 @@ class RemoteDatabase {
 //                }
 //        }
         
-        collectionChields.getDocuments() { (querySnapshot, err) in
+        collectionChildren.getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -244,7 +215,7 @@ class RemoteDatabase {
         timeline.append(newTimeline)
         
         
-        collectionChields.document("yRs8whn7F5FAFeh9pVAU").updateData([
+        collectionChildren.document("yRs8whn7F5FAFeh9pVAU").updateData([
             "timeline": timeline
         ]) { err in
             if let err = err {

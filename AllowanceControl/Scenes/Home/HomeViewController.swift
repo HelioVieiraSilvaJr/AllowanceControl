@@ -8,20 +8,12 @@
 
 import UIKit
 
-class HomeViewBuilder {
-    func builder() -> HomeViewController {
-        let viewController = HomeViewController.instantiate()
-        return viewController
-    }
-}
-
 final class HomeViewController: BaseViewController {
     
-    //MARK: Properties
+    // MARK: Properties
     var viewModel = HomeViewModel()
-    
 
-    //MARK: Outlets
+    // MARK: Outlets
     @IBOutlet weak var tableView: UITableView! {
         didSet{
             tableView.register(UINib(nibName: HomeParticipantCell.identifier, bundle: nil), forCellReuseIdentifier: HomeParticipantCell.identifier)
@@ -30,7 +22,13 @@ final class HomeViewController: BaseViewController {
         }
     }
     
-    //MARK: Overrides
+    // MARK: Initializate
+    static func builder() -> HomeViewController {
+        let viewController = HomeViewController.instantiate()
+        return viewController
+    }
+    
+    // MARK: Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Gerenciador de pontos"
@@ -41,6 +39,7 @@ final class HomeViewController: BaseViewController {
         let buttonItemAdd = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handlerAddElement))
         navigationItem.rightBarButtonItems = [buttonItemAdd, buttonItemTest, buttonItemTest2]
         
+        bindEvents()
         viewModel.fetchData()
     }
     
@@ -48,7 +47,7 @@ final class HomeViewController: BaseViewController {
     @objc func handlerAddElement() {
         let vc = AddParticipantModalViewBuilder().builder()
         vc.didAddParticipant = { [weak self] participant in
-            self?.viewModel.participants.append(participant)
+            self?.viewModel.children.append(participant)
             RemoteDatabase.shared.addNewParticipant(participant)
             self?.viewModel.fetchData()
         }
@@ -65,24 +64,30 @@ final class HomeViewController: BaseViewController {
     }
     
     //MARK: Helpers
-    func reloadTable() {
+    private func bindEvents() {
+        viewModel.shouldReloadHome = { [weak self] in
+            self?.reloadTable()
+        }
+    }
+    
+    private func reloadTable() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
 }
 
-//MARK: Extensions
+// MARK: Extensions
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.participants.count
+        return viewModel.children.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let participant = viewModel.participants[indexPath.row]
+        let child = viewModel.children[indexPath.row]
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: HomeParticipantCell.identifier, for: indexPath) as? HomeParticipantCell {
-            cell.setup(with: participant)
+            cell.setup(with: child)
             return cell
         }
         return UITableViewCell()
@@ -92,8 +97,8 @@ extension HomeViewController: UITableViewDataSource {
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let participant = viewModel.participants[indexPath.row]
-        let viewController = PropertiesParticipantViewBuilder().builder(withParticipant: participant)
+        let child = viewModel.children[indexPath.row]
+        let viewController = PropertiesParticipantViewController.builder(withParticipant: child)
         viewController.shouldUpdateData = { [weak self] in
             self?.viewModel.fetchData()
         }

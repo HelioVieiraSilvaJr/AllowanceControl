@@ -12,26 +12,28 @@ import Firebase
 final class HomeDatabase {
     
     let db = Firestore.firestore()
-    let collectionChields: CollectionReference!
+    let collectionChieldren: CollectionReference!
     
     init() {
-        collectionChields =  db.collection("parents").document("helio@gmail.com").collection("chields")
+        collectionChieldren =  db.collection("parents").document("helio@gmail.com").collection("children")
     }
     
-    func fetchParticipants(completion: @escaping ([Child]) -> Void) {
-        collectionChields.addSnapshotListener { documentSnapshot, error in
+    func fetchChildren(completion: @escaping ([Child]) -> Void) {
+        collectionChieldren.addSnapshotListener { documentSnapshot, error in
             if let err = error {
                 print("==> Error getting documents: \(err)")
             } else {
-                var participants = [Child]()
+                var children = [Child]()
                 guard let documents = documentSnapshot?.documents else {
                     print("==> No documents")
                     return
                 }
-                participants = documents.compactMap { queryDocumentSnapshot -> Child? in
+                children = documents.compactMap { queryDocumentSnapshot -> Child? in
+                    print("==> Try Child: \(queryDocumentSnapshot.data())")
                     return try? queryDocumentSnapshot.data(as: Child.self)
                 }
-                completion(participants)
+                print("==> Child: \(children)")
+                completion(children)
             }
         }
     }

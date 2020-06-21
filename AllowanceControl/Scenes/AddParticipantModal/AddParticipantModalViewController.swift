@@ -40,7 +40,7 @@ final class AddParticipantModalViewController: BaseViewController {
     @IBAction func handlerButtonDone(_ sender: Any) {
         guard validateFields() else { return }
         
-        let newParticipant = Child(name: edtFullName.text!, nickname: edtNickname.text!, points: 0)
+        let newParticipant = Child(name: edtFullName.text!, nickname: edtNickname.text!)
         didAddParticipant?(newParticipant)
         dismiss(animated: true, completion: nil)
     }

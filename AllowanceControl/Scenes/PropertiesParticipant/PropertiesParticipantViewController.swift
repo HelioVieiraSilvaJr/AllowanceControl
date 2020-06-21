@@ -8,30 +8,29 @@
 
 import UIKit
 
-class PropertiesParticipantViewBuilder {
-    func builder(withParticipant participant: Child) -> PropertiesParticipantViewController {
-        let viewController = PropertiesParticipantViewController.instantiate()
-        viewController.participant = participant
-        return viewController
-    }
-}
-
 final class PropertiesParticipantViewController: BaseViewController {
     
-    //MARK: Properties
-    var participant: Child!
+    // MARK: Properties
+    var child: Child!
     var shouldUpdateData: (() -> Void)?
     
-    //MARK: Overrides
+    // MARK: Initializate
+    static func builder(withParticipant participant: Child) -> PropertiesParticipantViewController {
+        let viewController = PropertiesParticipantViewController.instantiate()
+        viewController.child = participant
+        return viewController
+    }
+    
+    // MARK: Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = participant.name
+        navigationItem.title = child.name
         
         let buttonItemEdit = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(handlerButtonEdit))
         navigationItem.rightBarButtonItem = buttonItemEdit
     }
     
-    //MARK: Actions
+    // MARK: Actions
     @objc func handlerButtonEdit() {
         print("==> Button Edit")
     }
@@ -41,13 +40,13 @@ final class PropertiesParticipantViewController: BaseViewController {
     }
     
     @IBAction func handlerButtonAddPoints(_ sender: Any) {
-        let viewController = ChangePointsModalViewBuilder().builder(changeType: .addPoints)
+        let viewController = ChangePointsModalViewController.builder(changeType: .addPoints)
         viewController.didChangeCompletion = didChangePoints
         present(viewController, animated: true, completion: nil)
     }
     
     @IBAction func handlerButtonRemovePoints(_ sender: Any) {
-        let viewController = ChangePointsModalViewBuilder().builder(changeType: .removePoints)
+        let viewController = ChangePointsModalViewController.builder(changeType: .removePoints)
         viewController.didChangeCompletion = didChangePoints
         present(viewController, animated: true, completion: nil)
     }
@@ -57,32 +56,31 @@ final class PropertiesParticipantViewController: BaseViewController {
     }
     
     @IBAction func handlerButtonWarn(_ sender: Any) {
-        let viewController = ChangePointsModalViewBuilder().builder(changeType: .warning)
+        let viewController = ChangePointsModalViewController.builder(changeType: .warning)
         viewController.didChangeCompletion = didChangePoints
         present(viewController, animated: true, completion: nil)
     }
     
-    //MARK: Helpers
+    // MARK: Helpers
     private func didChangePoints(_ changePoint: Child.Timeline) {
-        guard let id = participant.id else { return }
-        participant.timeline?.append(changePoint)
+        guard let id = child.id else { return }
+        child.timeline?.append(changePoint)
         var changePoint = changePoint
         
-        switch changePoint.type {
-        case .addPoints:
-            participant.points += changePoint.points
-            
-        case .removePoints:
-            participant.points -= changePoint.points
-            
-        case .warning:
-            changePoint.points = 0
-            break
-        }
-        
-        changePoint.resultPoints = participant.points
+//        switch changePoint.type {
+//        case .addPoints:
+//            participant.points += changePoint.points
+//
+//        case .removePoints:
+//            participant.points -= changePoint.points
+//
+//        default:
+//            changePoint.points = 0
+//        }
+//
+//        changePoint.resultPoints = participant.points
         changePoint.date = Date().description
-        RemoteDatabase.shared.updatePoints(participant: participant)
+//        RemoteDatabase.shared.updatePoints(participant: child)
         RemoteDatabase.shared.addTimeline(id: id, timeline: changePoint)
         shouldUpdateData?()
         navigationController?.popViewController(animated: true)
