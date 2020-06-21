@@ -8,19 +8,12 @@
 
 import UIKit
 
-class HomeViewBuilder {
-    func builder() -> HomeViewController {
-        let viewController = HomeViewController.instantiate()
-        return viewController
-    }
-}
-
 final class HomeViewController: BaseViewController {
     
-    //MARK: Properties
-    var participants: [HomeParticipant] = []
+    // MARK: Properties
+    var viewModel = HomeViewModel()
 
-    //MARK: Outlets
+    // MARK: Outlets
     @IBOutlet weak var tableView: UITableView! {
         didSet{
             tableView.register(UINib(nibName: HomeParticipantCell.identifier, bundle: nil), forCellReuseIdentifier: HomeParticipantCell.identifier)
@@ -29,54 +22,72 @@ final class HomeViewController: BaseViewController {
         }
     }
     
-    //MARK: Overrides
+    // MARK: Initializate
+    static func builder() -> HomeViewController {
+        let viewController = HomeViewController.instantiate()
+        return viewController
+    }
+    
+    // MARK: Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Gerenciador de pontos"
         
-        let buttonItemAdd = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handlerAddElement))
-        navigationItem.rightBarButtonItem = buttonItemAdd
+        let buttonItemTest = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(test))
+        let buttonItemTest2 = UIBarButtonItem(barButtonSystemItem: .play, target: self, action: #selector(test2))
         
-        refreshData()
+        let buttonItemAdd = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handlerAddElement))
+        navigationItem.rightBarButtonItems = [buttonItemAdd, buttonItemTest, buttonItemTest2]
+        
+        bindEvents()
+        viewModel.fetchData()
     }
     
     //MARK: Actions
     @objc func handlerAddElement() {
         let vc = AddParticipantModalViewBuilder().builder()
         vc.didAddParticipant = { [weak self] participant in
-            self?.participants.append(participant)
-            RemoteDatabase.shared.testAddData(name: participant.name, nickname: participant.nickname)
-            self?.refreshData()
+            self?.viewModel.children.append(participant)
+            RemoteDatabase.shared.addNewParticipant(participant)
+            self?.viewModel.fetchData()
         }
         present(vc, animated: true, completion: nil)
     }
     
-    func refreshData() {
-        RemoteDatabase.shared.fetchParticipants { [weak self] participants in
-            self?.participants = participants
+    
+    @objc func test() {
+        RemoteDatabase.shared.test1()
+    }
+    
+    @objc func test2() {
+        RemoteDatabase.shared.test2()
+    }
+    
+    //MARK: Helpers
+    private func bindEvents() {
+        viewModel.shouldReloadHome = { [weak self] in
             self?.reloadTable()
         }
     }
     
-    //MARK: Helpers
-    func reloadTable() {
+    private func reloadTable() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
 }
 
-//MARK: Extensions
+// MARK: Extensions
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return participants.count
+        return viewModel.children.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let participant = participants[indexPath.row]
+        let child = viewModel.children[indexPath.row]
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: HomeParticipantCell.identifier, for: indexPath) as? HomeParticipantCell {
-            cell.setup(with: participant)
+            cell.setup(with: child)
             return cell
         }
         return UITableViewCell()
@@ -86,8 +97,11 @@ extension HomeViewController: UITableViewDataSource {
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let participant = participants[indexPath.row]
-        let propertiesViewController = PropertiesParticipantViewBuilder().builder(withParticipant: participant)
-        navigationController?.pushViewController(propertiesViewController, animated: true)
+        let child = viewModel.children[indexPath.row]
+        let viewController = PropertiesParticipantViewController.builder(withParticipant: child)
+        viewController.shouldUpdateData = { [weak self] in
+            self?.viewModel.fetchData()
+        }
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }

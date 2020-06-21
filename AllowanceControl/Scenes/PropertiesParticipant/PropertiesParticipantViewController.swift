@@ -8,29 +8,29 @@
 
 import UIKit
 
-class PropertiesParticipantViewBuilder {
-    func builder(withParticipant participant: HomeParticipant) -> PropertiesParticipantViewController {
-        let viewController = PropertiesParticipantViewController.instantiate()
-        viewController.participant = participant
-        return viewController
-    }
-}
-
 final class PropertiesParticipantViewController: BaseViewController {
     
-    //MARK: Properties
-    var participant: HomeParticipant!
+    // MARK: Properties
+    var child: Child!
+    var shouldUpdateData: (() -> Void)?
     
-    //MARK: Overrides
+    // MARK: Initializate
+    static func builder(withParticipant participant: Child) -> PropertiesParticipantViewController {
+        let viewController = PropertiesParticipantViewController.instantiate()
+        viewController.child = participant
+        return viewController
+    }
+    
+    // MARK: Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = participant.name
+        navigationItem.title = child.name
         
         let buttonItemEdit = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(handlerButtonEdit))
         navigationItem.rightBarButtonItem = buttonItemEdit
     }
     
-    //MARK: Actions
+    // MARK: Actions
     @objc func handlerButtonEdit() {
         print("==> Button Edit")
     }
@@ -40,11 +40,15 @@ final class PropertiesParticipantViewController: BaseViewController {
     }
     
     @IBAction func handlerButtonAddPoints(_ sender: Any) {
-        print("==> handlerButtonAddPoints")
+        let viewController = ChangePointsModalViewController.builder(changeType: .addPoints)
+        viewController.didChangeCompletion = didChangePoints
+        present(viewController, animated: true, completion: nil)
     }
     
     @IBAction func handlerButtonRemovePoints(_ sender: Any) {
-        print("==> handlerButtonRemovePoints")
+        let viewController = ChangePointsModalViewController.builder(changeType: .removePoints)
+        viewController.didChangeCompletion = didChangePoints
+        present(viewController, animated: true, completion: nil)
     }
     
     @IBAction func handlerButtonPayPoints(_ sender: Any) {
@@ -52,7 +56,33 @@ final class PropertiesParticipantViewController: BaseViewController {
     }
     
     @IBAction func handlerButtonWarn(_ sender: Any) {
-        print("==> handlerButtonWarn")
+        let viewController = ChangePointsModalViewController.builder(changeType: .warning)
+        viewController.didChangeCompletion = didChangePoints
+        present(viewController, animated: true, completion: nil)
     }
     
+    // MARK: Helpers
+    private func didChangePoints(_ changePoint: Child.Timeline) {
+        guard let id = child.id else { return }
+        child.timeline?.append(changePoint)
+        var changePoint = changePoint
+        
+//        switch changePoint.type {
+//        case .addPoints:
+//            participant.points += changePoint.points
+//
+//        case .removePoints:
+//            participant.points -= changePoint.points
+//
+//        default:
+//            changePoint.points = 0
+//        }
+//
+//        changePoint.resultPoints = participant.points
+        changePoint.date = Date().description
+//        RemoteDatabase.shared.updatePoints(participant: child)
+        RemoteDatabase.shared.addTimeline(id: id, timeline: changePoint)
+        shouldUpdateData?()
+        navigationController?.popViewController(animated: true)
+    }
 }
