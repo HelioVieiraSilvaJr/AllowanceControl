@@ -9,7 +9,7 @@
 import UIKit
 
 class PropertiesParticipantViewBuilder {
-    func builder(withParticipant participant: HomeParticipant) -> PropertiesParticipantViewController {
+    func builder(withParticipant participant: Child) -> PropertiesParticipantViewController {
         let viewController = PropertiesParticipantViewController.instantiate()
         viewController.participant = participant
         return viewController
@@ -19,7 +19,7 @@ class PropertiesParticipantViewBuilder {
 final class PropertiesParticipantViewController: BaseViewController {
     
     //MARK: Properties
-    var participant: HomeParticipant!
+    var participant: Child!
     var shouldUpdateData: (() -> Void)?
     
     //MARK: Overrides
@@ -63,7 +63,7 @@ final class PropertiesParticipantViewController: BaseViewController {
     }
     
     //MARK: Helpers
-    private func didChangePoints(_ changePoint: HomeParticipant.Timeline) {
+    private func didChangePoints(_ changePoint: Child.Timeline) {
         guard let id = participant.id else { return }
         participant.timeline?.append(changePoint)
         var changePoint = changePoint

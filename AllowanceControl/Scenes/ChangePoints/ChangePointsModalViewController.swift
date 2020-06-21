@@ -20,7 +20,7 @@ class ChangePointsModalViewBuilder {
 final class ChangePointsModalViewController: UIViewController {
     
     //MARK: Properties
-    var didChangeCompletion: ((HomeParticipant.Timeline) -> Void)?
+    var didChangeCompletion: ((Child.Timeline) -> Void)?
     enum ChangeType: String, Codable {
         case addPoints
         case removePoints
@@ -56,7 +56,7 @@ final class ChangePointsModalViewController: UIViewController {
     
     @IBAction func handlerButtonDone() {
         self.becomeFirstResponder()
-        let timeline = HomeParticipant.Timeline(type: changeType, points: points, resultPoints: 0, description: txbDescription.text, date: "")
+        let timeline = Child.Timeline(type: changeType, points: points, resultPoints: 0, description: txbDescription.text, date: "")
         didChangeCompletion?(timeline)
         handlerButtonBack()
     }

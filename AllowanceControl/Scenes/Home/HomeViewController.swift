@@ -18,7 +18,8 @@ class HomeViewBuilder {
 final class HomeViewController: BaseViewController {
     
     //MARK: Properties
-    var participants: [HomeParticipant] = []
+    var viewModel = HomeViewModel()
+    
 
     //MARK: Outlets
     @IBOutlet weak var tableView: UITableView! {
@@ -40,26 +41,20 @@ final class HomeViewController: BaseViewController {
         let buttonItemAdd = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handlerAddElement))
         navigationItem.rightBarButtonItems = [buttonItemAdd, buttonItemTest, buttonItemTest2]
         
-        refreshData()
+        viewModel.fetchData()
     }
     
     //MARK: Actions
     @objc func handlerAddElement() {
         let vc = AddParticipantModalViewBuilder().builder()
         vc.didAddParticipant = { [weak self] participant in
-            self?.participants.append(participant)
+            self?.viewModel.participants.append(participant)
             RemoteDatabase.shared.addNewParticipant(participant)
-            self?.refreshData()
+            self?.viewModel.fetchData()
         }
         present(vc, animated: true, completion: nil)
     }
     
-    func refreshData() {
-        RemoteDatabase.shared.fetchParticipants { [weak self] participants in
-            self?.participants = participants
-            self?.reloadTable()
-        }
-    }
     
     @objc func test() {
         RemoteDatabase.shared.test1()
@@ -80,11 +75,11 @@ final class HomeViewController: BaseViewController {
 //MARK: Extensions
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return participants.count
+        return viewModel.participants.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let participant = participants[indexPath.row]
+        let participant = viewModel.participants[indexPath.row]
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: HomeParticipantCell.identifier, for: indexPath) as? HomeParticipantCell {
             cell.setup(with: participant)
@@ -97,10 +92,10 @@ extension HomeViewController: UITableViewDataSource {
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let participant = participants[indexPath.row]
+        let participant = viewModel.participants[indexPath.row]
         let viewController = PropertiesParticipantViewBuilder().builder(withParticipant: participant)
         viewController.shouldUpdateData = { [weak self] in
-            self?.refreshData()
+            self?.viewModel.fetchData()
         }
         navigationController?.pushViewController(viewController, animated: true)
     }

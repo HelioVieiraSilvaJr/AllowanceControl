@@ -50,25 +50,25 @@ class RemoteDatabase {
         }
     }
     
-    func fetchParticipants(completion: @escaping ([HomeParticipant]) -> Void) {
+    func fetchParticipants(completion: @escaping ([Child]) -> Void) {
         db.collection("users").getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                var participants = [HomeParticipant]()
+                var participants = [Child]()
                 guard let documents = querySnapshot?.documents else {
                     print("==> No documents")
                     return
                 }
-                participants = documents.compactMap { queryDocumentSnapshot -> HomeParticipant? in
-                    return try? queryDocumentSnapshot.data(as: HomeParticipant.self)
+                participants = documents.compactMap { queryDocumentSnapshot -> Child? in
+                    return try? queryDocumentSnapshot.data(as: Child.self)
                 }
                 completion(participants)
             }
         }
     }
     
-    func addNewParticipant(_ participant: HomeParticipant) {
+    func addNewParticipant(_ participant: Child) {
         // Add a new document with a generated ID
         db.collection("users").addDocument(data: [
             "name": participant.name,
@@ -81,7 +81,7 @@ class RemoteDatabase {
         }
     }
     
-    func updatePoints(participant: HomeParticipant) {
+    func updatePoints(participant: Child) {
         guard let id = participant.id else {return}
         // Add a new document with a generated ID
         db.collection("users").document(id).updateData([
@@ -93,7 +93,7 @@ class RemoteDatabase {
         }
     }
     
-    func addTimeline(id: String, timeline: HomeParticipant.Timeline) {
+    func addTimeline(id: String, timeline: Child.Timeline) {
         do {
             let timelineData = try JSONEncoder().encode(timeline)
             guard let dictionary = try JSONSerialization.jsonObject(with: timelineData, options: .allowFragments) as? [String:Any] else {return}
@@ -182,18 +182,18 @@ class RemoteDatabase {
 //            ]
 //            ])
         
-        collectionParents.document(parent).collection(collectionChields).addDocument(data: [
-        "name": "Guilherme Negrão",
-        "nickname": "Gui",
-        "timeline": [
-            [
-                "date": Date().description,
-                "description": "Participante adicionado!",
-                "points": 0,
-                "type": "fisrt"
-            ]
-        ]
-        ])
+//        collectionParents.document(parent).collection(collectionChields).addDocument(data: [
+//        "name": "Guilherme Negrão",
+//        "nickname": "Gui",
+//        "timeline": [
+//            [
+//                "date": Date().description,
+//                "description": "Participante adicionado!",
+//                "points": 0,
+//                "type": "fisrt"
+//            ]
+//        ]
+//        ])
     }
     
     func test2() {

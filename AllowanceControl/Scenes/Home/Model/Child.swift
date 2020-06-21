@@ -1,5 +1,5 @@
 //
-//  HomeParticipant.swift
+//  Child.swift
 //  AllowanceControl
 //
 //  Created by Helio Junior on 16/06/20.
@@ -9,7 +9,7 @@
 import Foundation
 import FirebaseFirestoreSwift
 
-struct HomeParticipant: Identifiable, Codable, Equatable {
+struct Child: Identifiable, Codable, Equatable {
 
     @DocumentID var id: String?
     var name: String
@@ -25,7 +25,7 @@ struct HomeParticipant: Identifiable, Codable, Equatable {
         var date: String
     }
     
-    static func ==(lhs: HomeParticipant, rhs: HomeParticipant) -> Bool {
+    static func ==(lhs: Child, rhs: Child) -> Bool {
         return lhs.id == rhs.id
     }
 }
