@@ -17,9 +17,7 @@ final class ChildViewController: BaseViewController {
     
     // MARK: Outlets
     @IBOutlet weak var lblTitle: UILabel!
-    @IBOutlet weak var viewOutside: UIView!
-    @IBOutlet weak var viewContent: CustomView!
-    @IBOutlet weak var edtFullName: UITextField!
+    @IBOutlet weak var edtName: UITextField!
     @IBOutlet weak var edtNickname: UITextField!
     @IBOutlet weak var edtColor: UITextField!
     
@@ -27,8 +25,6 @@ final class ChildViewController: BaseViewController {
     static func builder(method: ChildViewModel.Method, child: Child? = nil) -> ChildViewController {
         let viewController = ChildViewController.instantiate()
         viewController.viewModel = ChildViewModel(methodOperation: method, child: child)
-        viewController.modalTransitionStyle = .crossDissolve
-        viewController.modalPresentationStyle = .overCurrentContext
         return viewController
     }
     
@@ -36,23 +32,20 @@ final class ChildViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        edtFullName.becomeFirstResponder()
+        edtName.becomeFirstResponder()
         
         edtColor.inputView = pickerColor
         pickerColor.dataSource = self
         pickerColor.delegate = self
         
-        let tapOutside = UITapGestureRecognizer(target: self, action: #selector(handlerTapOutside))
-        viewOutside.addGestureRecognizer(tapOutside)
-        
         if viewModel.methodOperation == .add {
             lblTitle.text = "Adicionar participante"
         } else {
             lblTitle.text = "Editar participante"
-            edtFullName.text = viewModel.child?.name
+            edtName.text = viewModel.child?.name
             edtNickname.text = viewModel.child?.nickname
             edtColor.text = viewModel.colorSelected?.name
-            viewContent.backgroundColor = UIColor(hex: viewModel.child?.colorHex)
+            edtColor.backgroundColor = UIColor(hex: viewModel.child?.colorHex)
         }
     }
     
@@ -62,21 +55,13 @@ final class ChildViewController: BaseViewController {
     
     // MARK: Actions
     @IBAction private func handlerButtonDone(_ sender: Any) {
-        guard let child = viewModel.validateChild(name: edtFullName.text, nickname: edtNickname.text) else { return }
+        guard let child = viewModel.validateChild(name: edtName.text, nickname: edtNickname.text) else { return }
         
         viewModel.save(child: child) { [weak self] status in
             if status {
-                self?.dismiss(animated: true, completion: nil)
+                self?.navigationController?.popViewController(animated: true)
             }
         }
-    }
-    
-    @IBAction private func handlerButtonClose(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    @objc private func handlerTapOutside() {
-        self.becomeFirstResponder()
     }
 }
 
@@ -105,7 +90,7 @@ extension ChildViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let color = viewModel.colorsData[row]
-        viewContent.backgroundColor = UIColor(hex: color.colorHex)
+        edtColor.backgroundColor = UIColor(hex: color.colorHex)
         edtColor.text = color.name
         viewModel.colorSelected = color
     }

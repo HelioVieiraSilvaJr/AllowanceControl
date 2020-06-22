@@ -33,11 +33,10 @@ final class HomeViewController: BaseViewController {
         super.viewDidLoad()
         navigationItem.title = "Gerenciador de pontos"
         
-        let buttonItemTest = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(test))
-        let buttonItemTest2 = UIBarButtonItem(barButtonSystemItem: .play, target: self, action: #selector(test2))
-        
+//        let buttonItemTest = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(test))
+//        let buttonItemTest2 = UIBarButtonItem(barButtonSystemItem: .play, target: self, action: #selector(test2))
         let buttonItemAdd = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handlerAddElement))
-        navigationItem.rightBarButtonItems = [buttonItemAdd, buttonItemTest, buttonItemTest2]
+        navigationItem.rightBarButtonItems = [buttonItemAdd]
         
         bindEvents()
         viewModel.fetchData()
@@ -45,8 +44,8 @@ final class HomeViewController: BaseViewController {
     
     //MARK: Actions
     @objc func handlerAddElement() {
-        let vc = ChildViewController.builder(method: .add)
-        present(vc, animated: true, completion: nil)
+        let viewController = ChildViewController.builder(method: .add)
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     

@@ -33,7 +33,7 @@ final class PropertiesChildViewController: BaseViewController {
     // MARK: Actions
     @objc func handlerButtonEdit() {
         let viewController = ChildViewController.builder(method: .update, child: viewModel.child)
-        present(viewController, animated: true, completion: nil)
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     @IBAction func handlerButtonHistoric(_ sender: Any) {
