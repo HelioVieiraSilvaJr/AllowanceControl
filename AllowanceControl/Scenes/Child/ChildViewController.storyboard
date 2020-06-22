@@ -208,6 +208,7 @@
                         <outlet property="edtColor" destination="LIu-2Z-t5S" id="VEH-mL-Opf"/>
                         <outlet property="edtFullName" destination="nM5-3c-EEz" id="Wcl-gG-hoC"/>
                         <outlet property="edtNickname" destination="eJJ-qc-JXS" id="zyr-dK-gCp"/>
+                        <outlet property="lblTitle" destination="z5Q-Do-eux" id="Ni2-df-Iwv"/>
                         <outlet property="viewContent" destination="ltU-TY-rbH" id="gUn-Sl-N4h"/>
                         <outlet property="viewOutside" destination="aui-gg-fBo" id="QwR-tY-yta"/>
                     </connections>

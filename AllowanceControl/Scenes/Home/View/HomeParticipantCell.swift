@@ -14,6 +14,7 @@ class HomeParticipantCell: UITableViewCell {
 
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblPoints: UILabel!
+    @IBOutlet weak var viewContent: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,5 +24,6 @@ class HomeParticipantCell: UITableViewCell {
     func setup(with child: Child) {
         lblName.text = child.nickname
         lblPoints.text = child.getPoints().description
+        viewContent.backgroundColor = UIColor(hex: child.colorHex)
     }
 }

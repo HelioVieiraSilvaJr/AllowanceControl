@@ -16,6 +16,7 @@ final class ChildViewController: BaseViewController {
     private var pickerColor = UIPickerView()
     
     // MARK: Outlets
+    @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var viewOutside: UIView!
     @IBOutlet weak var viewContent: CustomView!
     @IBOutlet weak var edtFullName: UITextField!
@@ -37,9 +38,6 @@ final class ChildViewController: BaseViewController {
         
         edtFullName.becomeFirstResponder()
         
-        edtFullName.text = "Helio"
-        edtNickname.text = "Helio"
-        
         edtColor.inputView = pickerColor
         pickerColor.dataSource = self
         pickerColor.delegate = self
@@ -47,9 +45,14 @@ final class ChildViewController: BaseViewController {
         let tapOutside = UITapGestureRecognizer(target: self, action: #selector(handlerTapOutside))
         viewOutside.addGestureRecognizer(tapOutside)
         
-        if viewModel.methodOperation == .update {
+        if viewModel.methodOperation == .add {
+            lblTitle.text = "Adicionar participante"
+        } else {
+            lblTitle.text = "Editar participante"
             edtFullName.text = viewModel.child?.name
             edtNickname.text = viewModel.child?.nickname
+            edtColor.text = viewModel.colorSelected?.name
+            viewContent.backgroundColor = UIColor(hex: viewModel.child?.colorHex)
         }
     }
     

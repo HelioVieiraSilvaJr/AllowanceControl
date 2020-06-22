@@ -18,41 +18,38 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ALj-U9-Yc3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="h4a-eJ-lcj">
-                                <rect key="frame" x="25" y="19.5" width="270" height="21.5"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guilo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jPx-dt-HUX">
-                                        <rect key="frame" x="0.0" y="0.0" width="206.5" height="21.5"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
-                                        <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="127 Pts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbm-wM-aIx">
-                                        <rect key="frame" x="216.5" y="0.0" width="53.5" height="21.5"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="17"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zh0-q3-1yC">
-                                <rect key="frame" x="3" y="59" width="314" height="1"/>
+                                <rect key="frame" x="3" y="79" width="314" height="1"/>
                                 <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="GdB-KJ-oax"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guilo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jPx-dt-HUX">
+                                <rect key="frame" x="25" y="15" width="270" height="29"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="22"/>
+                                <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="127" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhR-TC-isp">
+                                <rect key="frame" x="235" y="29.5" width="60" height="39.5"/>
+                                <fontDescription key="fontDescription" name="Thonburi-Bold" family="Thonburi" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="h4a-eJ-lcj" secondAttribute="trailing" constant="25" id="9J7-Ix-bAs"/>
-                            <constraint firstAttribute="height" constant="60" id="IAa-Nr-TIn"/>
-                            <constraint firstItem="h4a-eJ-lcj" firstAttribute="leading" secondItem="ALj-U9-Yc3" secondAttribute="leading" constant="25" id="M3n-gV-l3g"/>
+                            <constraint firstAttribute="height" constant="80" id="IAa-Nr-TIn"/>
+                            <constraint firstItem="Zh0-q3-1yC" firstAttribute="top" secondItem="qhR-TC-isp" secondAttribute="bottom" constant="10" id="JAl-0r-42Z"/>
+                            <constraint firstItem="jPx-dt-HUX" firstAttribute="top" secondItem="ALj-U9-Yc3" secondAttribute="top" constant="15" id="KFp-z4-cGq"/>
+                            <constraint firstItem="jPx-dt-HUX" firstAttribute="leading" secondItem="ALj-U9-Yc3" secondAttribute="leading" constant="25" id="KUQ-4g-rzP"/>
+                            <constraint firstAttribute="trailing" secondItem="jPx-dt-HUX" secondAttribute="trailing" constant="25" id="Qbm-Er-T0a"/>
                             <constraint firstItem="Zh0-q3-1yC" firstAttribute="leading" secondItem="ALj-U9-Yc3" secondAttribute="leading" constant="3" id="a7A-rQ-EOj"/>
                             <constraint firstAttribute="bottom" secondItem="Zh0-q3-1yC" secondAttribute="bottom" id="fLR-0E-MjA"/>
-                            <constraint firstItem="h4a-eJ-lcj" firstAttribute="centerY" secondItem="ALj-U9-Yc3" secondAttribute="centerY" id="oDv-Iv-4vK"/>
+                            <constraint firstAttribute="trailing" secondItem="qhR-TC-isp" secondAttribute="trailing" constant="25" id="srZ-dP-NRn"/>
                             <constraint firstAttribute="trailing" secondItem="Zh0-q3-1yC" secondAttribute="trailing" constant="3" id="xkg-O6-HIK"/>
                         </constraints>
                     </view>
@@ -69,7 +66,8 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="lblName" destination="jPx-dt-HUX" id="zga-em-T2k"/>
-                <outlet property="lblPoints" destination="jbm-wM-aIx" id="1ME-Gf-qlf"/>
+                <outlet property="lblPoints" destination="qhR-TC-isp" id="3n2-9H-q0Q"/>
+                <outlet property="viewContent" destination="ALj-U9-Yc3" id="VNV-tm-A1Y"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="152.67857142857142"/>
         </tableViewCell>
