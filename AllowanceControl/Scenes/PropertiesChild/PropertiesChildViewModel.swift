@@ -24,4 +24,8 @@ final class PropertiesChildViewModel {
         childTimeline.append(timeline)
         database.add(timeline: childTimeline, completion: completion)
     }
+    
+    func updateChild(_ child: Child) {
+        print("==> Update Child: \(child)")
+    }
 }

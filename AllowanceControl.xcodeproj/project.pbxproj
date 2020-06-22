@@ -11,6 +11,8 @@
 		BD34140824A03F0D00BFF204 /* PropertiesChildViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34140724A03F0D00BFF204 /* PropertiesChildViewModel.swift */; };
 		BD34140B24A0417400BFF204 /* PropertiesChildDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34140A24A0417400BFF204 /* PropertiesChildDatabase.swift */; };
 		BD34140D24A043AC00BFF204 /* Codable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34140C24A043AC00BFF204 /* Codable+Extension.swift */; };
+		BD34141124A05D9F00BFF204 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34141024A05D9F00BFF204 /* UIColor+Extension.swift */; };
+		BD34141424A0626000BFF204 /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34141324A0626000BFF204 /* ColorPicker.swift */; };
 		BD4C80FA249FDF5500AB67C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C80F9249FDF5500AB67C3 /* SceneDelegate.swift */; };
 		BD4C80FC249FE16400AB67C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD4C80FB249FE16400AB67C3 /* Main.storyboard */; };
 		BD4C80FE249FFCA300AB67C3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C80FD249FFCA300AB67C3 /* HomeViewModel.swift */; };
@@ -48,6 +50,8 @@
 		BD34140724A03F0D00BFF204 /* PropertiesChildViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertiesChildViewModel.swift; sourceTree = "<group>"; };
 		BD34140A24A0417400BFF204 /* PropertiesChildDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertiesChildDatabase.swift; sourceTree = "<group>"; };
 		BD34140C24A043AC00BFF204 /* Codable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable+Extension.swift"; sourceTree = "<group>"; };
+		BD34141024A05D9F00BFF204 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		BD34141324A0626000BFF204 /* ColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
 		BD4C80F9249FDF5500AB67C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BD4C80FB249FE16400AB67C3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		BD4C80FD249FFCA300AB67C3 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -117,6 +121,14 @@
 			path = Database;
 			sourceTree = "<group>";
 		};
+		BD34141224A0622F00BFF204 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BD34141324A0626000BFF204 /* ColorPicker.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		BD4C8100249FFCDC00AB67C3 /* Database */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,7 +172,7 @@
 			children = (
 				BD964E87249986A800B49C8A /* Base */,
 				BD964E9024998A6B00B49C8A /* Home */,
-				BD964E982499931D00B49C8A /* AddParticipantModal */,
+				BD964E982499931D00B49C8A /* Child */,
 				BD964EAD2499BA7E00B49C8A /* PropertiesChild */,
 				BD964EB72499EC7900B49C8A /* AddTimelineHistoric */,
 			);
@@ -192,6 +204,7 @@
 				BD964EA22499ACC100B49C8A /* UIImageView+Extension.swift */,
 				BDC065FD2499F90E0021A021 /* String+Extension.swift */,
 				BD34140C24A043AC00BFF204 /* Codable+Extension.swift */,
+				BD34141024A05D9F00BFF204 /* UIColor+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -240,13 +253,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		BD964E982499931D00B49C8A /* AddParticipantModal */ = {
+		BD964E982499931D00B49C8A /* Child */ = {
 			isa = PBXGroup;
 			children = (
+				BD34141224A0622F00BFF204 /* Model */,
 				BD964E992499937000B49C8A /* ChildViewController.swift */,
 				BD964E9B2499938900B49C8A /* ChildViewController.storyboard */,
 			);
-			path = AddParticipantModal;
+			path = Child;
 			sourceTree = "<group>";
 		};
 		BD964E9D2499A21E00B49C8A /* Views */ = {
@@ -419,10 +433,12 @@
 				BD34140D24A043AC00BFF204 /* Codable+Extension.swift in Sources */,
 				BD4C80FE249FFCA300AB67C3 /* HomeViewModel.swift in Sources */,
 				BDC065FE2499F90E0021A021 /* String+Extension.swift in Sources */,
+				BD34141124A05D9F00BFF204 /* UIColor+Extension.swift in Sources */,
 				BD34140824A03F0D00BFF204 /* PropertiesChildViewModel.swift in Sources */,
 				BD964E7A249984BD00B49C8A /* AllowanceControl.xcdatamodeld in Sources */,
 				BD964EB62499DBF200B49C8A /* RemoteDatabase.swift in Sources */,
 				BD964EA52499AD2100B49C8A /* CustomImageView.swift in Sources */,
+				BD34141424A0626000BFF204 /* ColorPicker.swift in Sources */,
 				BD964E89249986B700B49C8A /* BaseViewController.swift in Sources */,
 				BD964EAF2499BACD00B49C8A /* PropertiesChildViewController.swift in Sources */,
 				BD964EA32499ACC100B49C8A /* UIImageView+Extension.swift in Sources */,

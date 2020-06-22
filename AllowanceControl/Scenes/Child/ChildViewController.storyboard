@@ -81,7 +81,7 @@
                                                             <constraint firstAttribute="height" constant="45" id="4Ww-0g-0xt"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
                                                     </textField>
                                                 </subviews>
                                                 <constraints>
@@ -104,7 +104,7 @@
                                                             <constraint firstAttribute="height" constant="45" id="AbA-or-0ja"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="nickname"/>
                                                     </textField>
                                                 </subviews>
                                                 <constraints>
@@ -121,7 +121,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="digite aqui..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LIu-2Z-t5S">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="selecione" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LIu-2Z-t5S">
                                                         <rect key="frame" x="0.0" y="24" width="324" height="45"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="dyx-r8-bJC"/>
@@ -170,7 +170,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="Wkk-7g-h6Y" firstAttribute="top" secondItem="N3z-rp-5RY" secondAttribute="bottom" constant="30" id="0gQ-NF-Npq"/>
                                     <constraint firstAttribute="trailing" secondItem="Wkk-7g-h6Y" secondAttribute="trailing" constant="15" id="20n-B5-YOj"/>
@@ -205,8 +205,11 @@
                         <viewLayoutGuide key="safeArea" id="xXd-0w-aMG"/>
                     </view>
                     <connections>
+                        <outlet property="edtColor" destination="LIu-2Z-t5S" id="VEH-mL-Opf"/>
                         <outlet property="edtFullName" destination="nM5-3c-EEz" id="Wcl-gG-hoC"/>
                         <outlet property="edtNickname" destination="eJJ-qc-JXS" id="zyr-dK-gCp"/>
+                        <outlet property="viewContent" destination="ltU-TY-rbH" id="gUn-Sl-N4h"/>
+                        <outlet property="viewOutside" destination="aui-gg-fBo" id="QwR-tY-yta"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EnR-FW-LHG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

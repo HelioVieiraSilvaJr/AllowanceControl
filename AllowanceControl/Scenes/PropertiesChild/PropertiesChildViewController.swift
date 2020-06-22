@@ -32,7 +32,11 @@ final class PropertiesChildViewController: BaseViewController {
     
     // MARK: Actions
     @objc func handlerButtonEdit() {
-        print("==> Button Edit")
+        let viewController = ChildViewController.builder(method: .edit, child: viewModel.child)
+        viewController.didEditChild = { [weak self] child in
+            self?.viewModel.updateChild(child)
+        }
+        present(viewController, animated: true, completion: nil)
     }
     
     @IBAction func handlerButtonHistoric(_ sender: Any) {

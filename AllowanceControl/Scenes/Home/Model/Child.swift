@@ -15,6 +15,7 @@ struct Child: Identifiable, Codable, Equatable {
     var name: String
     var nickname: String
     var timeline: [Timeline]?
+    var colorHex: String?
     
     struct Timeline: Codable {
         enum TypeLine: String, Codable {

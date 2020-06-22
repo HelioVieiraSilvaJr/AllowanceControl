@@ -23,4 +23,8 @@ final class HomeViewModel {
         }
     }
     
+    func addChild(_ child: Child) {
+        print("==> Add Child: \(child)")
+    }
+    
 }
