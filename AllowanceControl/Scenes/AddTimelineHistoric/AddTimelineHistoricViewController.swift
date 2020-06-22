@@ -36,7 +36,7 @@ final class AddTimelineHistoricViewController: UIViewController {
         super.viewDidLoad()
         
         edtPoints.addTarget(self, action: #selector(textFieldEndEditing(_:)), for: .editingDidEnd)
-        configureView()
+        setupViews()
     }
     
     override var canBecomeFirstResponder: Bool {
@@ -69,10 +69,12 @@ final class AddTimelineHistoricViewController: UIViewController {
         points = textField.text?.integerValue ?? 0
     }
     
+    @objc func handlerKeyboardButton() {
+        self.becomeFirstResponder()
+    }
+    
     // MARK: Helpers
-    func configureView() {
-        edtPoints.text = points.description
-        
+    func setupViews() {
         switch typeTimeline {
         case .addPoints:
             imgModal.image = UIImage(named: "icPlusPoints")
@@ -103,5 +105,25 @@ final class AddTimelineHistoricViewController: UIViewController {
         default:
             break
         }
+        
+        edtPoints.text = points.description
+        txbDescription.delegate = self
+        
+        let keyboardButton = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let okButton = UIBarButtonItem(title: "Ok", style: .done, target: self, action: #selector(handlerKeyboardButton))
+        keyboardButton.items = [flexSpace, okButton]
+        edtPoints.inputAccessoryView = keyboardButton
+        txbDescription.inputAccessoryView = keyboardButton
+    }
+}
+
+// MARK: Extensions
+extension AddTimelineHistoricViewController: UITextViewDelegate {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            self.becomeFirstResponder()
+        }
+        return true
     }
 }

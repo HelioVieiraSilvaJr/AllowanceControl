@@ -16,7 +16,6 @@ final class ChildViewController: BaseViewController {
     private var pickerColor = UIPickerView()
     
     // MARK: Outlets
-    @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var edtName: UITextField!
     @IBOutlet weak var edtNickname: UITextField!
     @IBOutlet weak var edtColor: UITextField!
@@ -33,20 +32,7 @@ final class ChildViewController: BaseViewController {
         super.viewDidLoad()
         
         edtName.becomeFirstResponder()
-        
-        edtColor.inputView = pickerColor
-        pickerColor.dataSource = self
-        pickerColor.delegate = self
-        
-        if viewModel.methodOperation == .add {
-            lblTitle.text = "Adicionar participante"
-        } else {
-            lblTitle.text = "Editar participante"
-            edtName.text = viewModel.child?.name
-            edtNickname.text = viewModel.child?.nickname
-            edtColor.text = viewModel.colorSelected?.name
-            edtColor.backgroundColor = UIColor(hex: viewModel.child?.colorHex)
-        }
+        setupViews()
     }
     
     override var canBecomeFirstResponder: Bool {
@@ -61,6 +47,36 @@ final class ChildViewController: BaseViewController {
             if status {
                 self?.navigationController?.popViewController(animated: true)
             }
+        }
+    }
+    
+    // MARK: Helpers
+    func setupViews() {
+        
+        edtColor.inputView = pickerColor
+        pickerColor.dataSource = self
+        pickerColor.delegate = self
+        edtName.delegate = self
+        edtNickname.delegate = self
+        edtColor.delegate = self
+        
+        let keyboardButton = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let okButton = UIBarButtonItem(title: "Ok", style: .done, target: self, action: #selector(textFieldShouldReturn(_:)))
+        keyboardButton.items = [flexSpace, okButton]
+        keyboardButton.sizeToFit()
+        edtName.inputAccessoryView = keyboardButton
+        edtNickname.inputAccessoryView = keyboardButton
+        edtColor.inputAccessoryView = keyboardButton
+        
+        if viewModel.methodOperation == .add {
+            self.title = "Adicionar participante"
+        } else {
+            self.title = "Editar participante"
+            edtName.text = viewModel.child?.name
+            edtNickname.text = viewModel.child?.nickname
+            edtColor.text = viewModel.colorSelected?.name
+            edtColor.backgroundColor = UIColor(hex: viewModel.child?.colorHex)
         }
     }
 }
@@ -93,5 +109,18 @@ extension ChildViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         edtColor.backgroundColor = UIColor(hex: color.colorHex)
         edtColor.text = color.name
         viewModel.colorSelected = color
+    }
+}
+
+extension ChildViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField === edtName {
+            edtNickname.becomeFirstResponder()
+        } else if textField === edtNickname {
+            edtColor.becomeFirstResponder()
+        } else {
+            self.becomeFirstResponder()
+        }
+        return true
     }
 }
