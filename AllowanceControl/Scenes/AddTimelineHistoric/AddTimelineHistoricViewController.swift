@@ -1,5 +1,5 @@
 //
-//  ChangePointsModalViewController.swift
+//  AddTimelineHistoricViewController.swift
 //  AllowanceControl
 //
 //  Created by Helio Junior on 17/06/20.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-final class ChangePointsModalViewController: UIViewController {
+final class AddTimelineHistoricViewController: UIViewController {
     
     // MARK: Properties
-    var didChangeCompletion: ((Child.Timeline) -> Void)?
-    var changeType: Child.Timeline.TypeLine = .addPoints
+    var didCompletion: ((Child.Timeline, UIViewController) -> Void)?
+    var typeTimeline: Child.Timeline.TypeLine = .addPoints
     var points = 1
     
     // MARK: Outlets
@@ -24,9 +24,9 @@ final class ChangePointsModalViewController: UIViewController {
     @IBOutlet weak var edtPoints: UITextField!
     
     // MARK: Initializate
-    static func builder(changeType: Child.Timeline.TypeLine) -> ChangePointsModalViewController {
-        let viewController = ChangePointsModalViewController.instantiate()
-        viewController.changeType = changeType
+    static func builder(typeTimeline: Child.Timeline.TypeLine) -> AddTimelineHistoricViewController {
+        let viewController = AddTimelineHistoricViewController.instantiate()
+        viewController.typeTimeline = typeTimeline
         viewController.modalPresentationStyle = .overCurrentContext
         return viewController
     }
@@ -50,8 +50,8 @@ final class ChangePointsModalViewController: UIViewController {
     
     @IBAction func handlerButtonDone() {
         self.becomeFirstResponder()
-        let timeline = Child.Timeline(type: changeType, points: points, description: txbDescription.text, date: "")
-        didChangeCompletion?(timeline)
+        let timeline = Child.Timeline(type: typeTimeline, points: points, description: txbDescription.text, date: Date().description)
+        didCompletion?(timeline, self)
         handlerButtonBack()
     }
     
@@ -73,7 +73,7 @@ final class ChangePointsModalViewController: UIViewController {
     func configureView() {
         edtPoints.text = points.description
         
-        switch changeType {
+        switch typeTimeline {
         case .addPoints:
             imgModal.image = UIImage(named: "icPlusPoints")
             lblTitle.text = "ganhou pontos"
@@ -98,6 +98,7 @@ final class ChangePointsModalViewController: UIViewController {
             lblTitle.textColor = color
             edtPoints.textColor = color
             viewButtonDone.backgroundColor = color
+            points = 0
             
         default:
             break

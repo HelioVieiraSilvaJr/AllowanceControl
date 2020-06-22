@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Change Points Modal View Controller-->
+        <!--Add Timeline Historic View Controller-->
         <scene sceneID="u8W-Md-QC3">
             <objects>
-                <viewController storyboardIdentifier="ChangePointsModalViewController" modalTransitionStyle="crossDissolve" id="LSd-Pc-Us5" customClass="ChangePointsModalViewController" customModule="AllowanceControl" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddTimelineHistoricViewController" modalTransitionStyle="crossDissolve" id="LSd-Pc-Us5" customClass="AddTimelineHistoricViewController" customModule="AllowanceControl" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="heK-QA-bB1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

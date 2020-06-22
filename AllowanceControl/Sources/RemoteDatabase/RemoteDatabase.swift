@@ -189,16 +189,16 @@ class RemoteDatabase {
 //                }
 //        }
         
-        collectionChildren.getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                print("\n\n -------- TIMELINE -------")
-                for document in querySnapshot!.documents {
-                    print("---> \(document.documentID) => \(document.data())")
-                }
-            }
-        }
+//        collectionChildren.getDocuments() { (querySnapshot, err) in
+//            if let err = err {
+//                print("Error getting documents: \(err)")
+//            } else {
+//                print("\n\n -------- TIMELINE -------")
+//                for document in querySnapshot!.documents {
+//                    print("---> \(document.documentID) => \(document.data())")
+//                }
+//            }
+//        }
         
         
         let newTimeline: [String:Any] = [

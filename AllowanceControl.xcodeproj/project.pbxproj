@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		02B3A892B03ED82E66B44F49 /* Pods_AllowanceControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB6676F5A7D09360C841C4DB /* Pods_AllowanceControl.framework */; };
+		BD34140824A03F0D00BFF204 /* PropertiesChildViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34140724A03F0D00BFF204 /* PropertiesChildViewModel.swift */; };
+		BD34140B24A0417400BFF204 /* PropertiesChildDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34140A24A0417400BFF204 /* PropertiesChildDatabase.swift */; };
+		BD34140D24A043AC00BFF204 /* Codable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD34140C24A043AC00BFF204 /* Codable+Extension.swift */; };
 		BD4C80FA249FDF5500AB67C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C80F9249FDF5500AB67C3 /* SceneDelegate.swift */; };
 		BD4C80FC249FE16400AB67C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD4C80FB249FE16400AB67C3 /* Main.storyboard */; };
 		BD4C80FE249FFCA300AB67C3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4C80FD249FFCA300AB67C3 /* HomeViewModel.swift */; };
@@ -33,8 +36,8 @@
 		BD964EB12499BAD400B49C8A /* PropertiesChildViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD964EB02499BAD400B49C8A /* PropertiesChildViewController.storyboard */; };
 		BD964EB32499D5B700B49C8A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD964EB22499D5B700B49C8A /* GoogleService-Info.plist */; };
 		BD964EB62499DBF200B49C8A /* RemoteDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD964EB52499DBF200B49C8A /* RemoteDatabase.swift */; };
-		BD964EB92499ECA400B49C8A /* ChangePointsModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD964EB82499ECA400B49C8A /* ChangePointsModalViewController.swift */; };
-		BD964EBB2499ECC400B49C8A /* ChangePointsModalViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD964EBA2499ECC400B49C8A /* ChangePointsModalViewController.storyboard */; };
+		BD964EB92499ECA400B49C8A /* AddTimelineHistoricViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD964EB82499ECA400B49C8A /* AddTimelineHistoricViewController.swift */; };
+		BD964EBB2499ECC400B49C8A /* AddTimelineHistoricViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD964EBA2499ECC400B49C8A /* AddTimelineHistoricViewController.storyboard */; };
 		BDC065FE2499F90E0021A021 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC065FD2499F90E0021A021 /* String+Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +45,9 @@
 		665E4AA7A6812333F2D0B484 /* Pods-AllowanceControl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AllowanceControl.release.xcconfig"; path = "Target Support Files/Pods-AllowanceControl/Pods-AllowanceControl.release.xcconfig"; sourceTree = "<group>"; };
 		AE8981077FDC5DD35AA0AFD2 /* Pods-AllowanceControl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AllowanceControl.debug.xcconfig"; path = "Target Support Files/Pods-AllowanceControl/Pods-AllowanceControl.debug.xcconfig"; sourceTree = "<group>"; };
 		BB6676F5A7D09360C841C4DB /* Pods_AllowanceControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AllowanceControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD34140724A03F0D00BFF204 /* PropertiesChildViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertiesChildViewModel.swift; sourceTree = "<group>"; };
+		BD34140A24A0417400BFF204 /* PropertiesChildDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertiesChildDatabase.swift; sourceTree = "<group>"; };
+		BD34140C24A043AC00BFF204 /* Codable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable+Extension.swift"; sourceTree = "<group>"; };
 		BD4C80F9249FDF5500AB67C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BD4C80FB249FE16400AB67C3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		BD4C80FD249FFCA300AB67C3 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -69,8 +75,8 @@
 		BD964EB02499BAD400B49C8A /* PropertiesChildViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PropertiesChildViewController.storyboard; sourceTree = "<group>"; };
 		BD964EB22499D5B700B49C8A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BD964EB52499DBF200B49C8A /* RemoteDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDatabase.swift; sourceTree = "<group>"; };
-		BD964EB82499ECA400B49C8A /* ChangePointsModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePointsModalViewController.swift; sourceTree = "<group>"; };
-		BD964EBA2499ECC400B49C8A /* ChangePointsModalViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChangePointsModalViewController.storyboard; sourceTree = "<group>"; };
+		BD964EB82499ECA400B49C8A /* AddTimelineHistoricViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimelineHistoricViewController.swift; sourceTree = "<group>"; };
+		BD964EBA2499ECC400B49C8A /* AddTimelineHistoricViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddTimelineHistoricViewController.storyboard; sourceTree = "<group>"; };
 		BDC065FD2499F90E0021A021 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,6 +107,14 @@
 				665E4AA7A6812333F2D0B484 /* Pods-AllowanceControl.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		BD34140924A0416100BFF204 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				BD34140A24A0417400BFF204 /* PropertiesChildDatabase.swift */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 		BD4C8100249FFCDC00AB67C3 /* Database */ = {
@@ -148,7 +162,7 @@
 				BD964E9024998A6B00B49C8A /* Home */,
 				BD964E982499931D00B49C8A /* AddParticipantModal */,
 				BD964EAD2499BA7E00B49C8A /* PropertiesChild */,
-				BD964EB72499EC7900B49C8A /* ChangePoints */,
+				BD964EB72499EC7900B49C8A /* AddTimelineHistoric */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -177,6 +191,7 @@
 				BD964E8E2499885F00B49C8A /* UIViewController+Extension.swift */,
 				BD964EA22499ACC100B49C8A /* UIImageView+Extension.swift */,
 				BDC065FD2499F90E0021A021 /* String+Extension.swift */,
+				BD34140C24A043AC00BFF204 /* Codable+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -254,6 +269,8 @@
 		BD964EAD2499BA7E00B49C8A /* PropertiesChild */ = {
 			isa = PBXGroup;
 			children = (
+				BD34140924A0416100BFF204 /* Database */,
+				BD34140724A03F0D00BFF204 /* PropertiesChildViewModel.swift */,
 				BD964EAE2499BACD00B49C8A /* PropertiesChildViewController.swift */,
 				BD964EB02499BAD400B49C8A /* PropertiesChildViewController.storyboard */,
 			);
@@ -268,13 +285,13 @@
 			path = RemoteDatabase;
 			sourceTree = "<group>";
 		};
-		BD964EB72499EC7900B49C8A /* ChangePoints */ = {
+		BD964EB72499EC7900B49C8A /* AddTimelineHistoric */ = {
 			isa = PBXGroup;
 			children = (
-				BD964EB82499ECA400B49C8A /* ChangePointsModalViewController.swift */,
-				BD964EBA2499ECC400B49C8A /* ChangePointsModalViewController.storyboard */,
+				BD964EB82499ECA400B49C8A /* AddTimelineHistoricViewController.swift */,
+				BD964EBA2499ECC400B49C8A /* AddTimelineHistoricViewController.storyboard */,
 			);
-			path = ChangePoints;
+			path = AddTimelineHistoric;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -345,7 +362,7 @@
 				BD964EB12499BAD400B49C8A /* PropertiesChildViewController.storyboard in Resources */,
 				BD964E7F249984BE00B49C8A /* LaunchScreen.storyboard in Resources */,
 				BD964E7C249984BE00B49C8A /* Assets.xcassets in Resources */,
-				BD964EBB2499ECC400B49C8A /* ChangePointsModalViewController.storyboard in Resources */,
+				BD964EBB2499ECC400B49C8A /* AddTimelineHistoricViewController.storyboard in Resources */,
 				BD964E8B2499870600B49C8A /* BaseViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -399,8 +416,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD34140D24A043AC00BFF204 /* Codable+Extension.swift in Sources */,
 				BD4C80FE249FFCA300AB67C3 /* HomeViewModel.swift in Sources */,
 				BDC065FE2499F90E0021A021 /* String+Extension.swift in Sources */,
+				BD34140824A03F0D00BFF204 /* PropertiesChildViewModel.swift in Sources */,
 				BD964E7A249984BD00B49C8A /* AllowanceControl.xcdatamodeld in Sources */,
 				BD964EB62499DBF200B49C8A /* RemoteDatabase.swift in Sources */,
 				BD964EA52499AD2100B49C8A /* CustomImageView.swift in Sources */,
@@ -412,7 +431,8 @@
 				BD964E9A2499937000B49C8A /* AddParticipantModalViewController.swift in Sources */,
 				BD4C8102249FFCFB00AB67C3 /* HomeDatabase.swift in Sources */,
 				BD964EA12499A2C800B49C8A /* CustomView.swift in Sources */,
-				BD964EB92499ECA400B49C8A /* ChangePointsModalViewController.swift in Sources */,
+				BD34140B24A0417400BFF204 /* PropertiesChildDatabase.swift in Sources */,
+				BD964EB92499ECA400B49C8A /* AddTimelineHistoricViewController.swift in Sources */,
 				BD964E8F2499885F00B49C8A /* UIViewController+Extension.swift in Sources */,
 				BD964E70249984BD00B49C8A /* AppDelegate.swift in Sources */,
 				BD964EAC2499B34700B49C8A /* Child.swift in Sources */,
