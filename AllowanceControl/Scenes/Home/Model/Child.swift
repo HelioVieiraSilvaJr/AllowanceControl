@@ -23,6 +23,7 @@ struct Child: Identifiable, Codable, Equatable {
             case addPoints
             case removePoints
             case warning
+            case receivePoints
             case unknow
             
             init(from decoder: Decoder) throws {
@@ -52,7 +53,7 @@ extension Child {
                 switch line.type {
                 case .addPoints:
                     resultValue += points
-                case .removePoints:
+                case .removePoints, .receivePoints:
                     resultValue -= points
                 default:
                     break

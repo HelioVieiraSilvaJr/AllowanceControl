@@ -154,7 +154,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="54C-uZ-Xou">
                                                 <rect key="frame" x="30" y="15" width="108" height="40"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icPayPoints" translatesAutoresizingMaskIntoConstraints="NO" id="SKv-om-X5g">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icReceivePoints" translatesAutoresizingMaskIntoConstraints="NO" id="SKv-om-X5g">
                                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="2m2-7c-do6"/>
@@ -176,7 +176,7 @@
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="handlerButtonPayPoints:" destination="pmb-g3-cxI" eventType="touchUpInside" id="sA8-in-Fka"/>
+                                                    <action selector="handlerButtonReceivePoints:" destination="pmb-g3-cxI" eventType="touchUpInside" id="Zym-cU-jVl"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -254,8 +254,8 @@
     </scenes>
     <resources>
         <image name="icHistoric" width="32" height="32"/>
-        <image name="icPayPoints" width="32" height="32"/>
         <image name="icPlusPoints" width="32" height="32"/>
+        <image name="icReceivePoints" width="32" height="32"/>
         <image name="icRemovePoints" width="32" height="32"/>
         <image name="icWarning" width="32" height="32"/>
     </resources>

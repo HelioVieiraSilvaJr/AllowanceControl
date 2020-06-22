@@ -52,8 +52,10 @@ final class PropertiesChildViewController: BaseViewController {
         present(viewController, animated: true, completion: nil)
     }
     
-    @IBAction func handlerButtonPayPoints(_ sender: Any) {
-        print("==> handlerButtonPayPoints")
+    @IBAction func handlerButtonReceivePoints(_ sender: Any) {
+        let viewController = AddTimelineHistoricViewController.builder(typeTimeline: .receivePoints, currentPoints: viewModel.child.getPoints())
+        viewController.didCompletion = addNewTimeline
+        present(viewController, animated: true, completion: nil)
     }
     
     @IBAction func handlerButtonWarn(_ sender: Any) {
@@ -69,8 +71,6 @@ final class PropertiesChildViewController: BaseViewController {
                 self?.shouldUpdateData?()
                 sender.dismiss(animated: true, completion: nil)
                 self?.navigationController?.popViewController(animated: true)
-            } else {
-                print("==> ERROR: Timeline não foi salva!!")
             }
         }
     }
