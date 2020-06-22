@@ -29,8 +29,8 @@
 		BD964EA82499AF4700B49C8A /* HomeParticipantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD964EA62499AF4700B49C8A /* HomeParticipantCell.swift */; };
 		BD964EA92499AF4700B49C8A /* HomeParticipantCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD964EA72499AF4700B49C8A /* HomeParticipantCell.xib */; };
 		BD964EAC2499B34700B49C8A /* Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD964EAB2499B34700B49C8A /* Child.swift */; };
-		BD964EAF2499BACD00B49C8A /* PropertiesParticipantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD964EAE2499BACD00B49C8A /* PropertiesParticipantViewController.swift */; };
-		BD964EB12499BAD400B49C8A /* PropertiesParticipantViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD964EB02499BAD400B49C8A /* PropertiesParticipantViewController.storyboard */; };
+		BD964EAF2499BACD00B49C8A /* PropertiesChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD964EAE2499BACD00B49C8A /* PropertiesChildViewController.swift */; };
+		BD964EB12499BAD400B49C8A /* PropertiesChildViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD964EB02499BAD400B49C8A /* PropertiesChildViewController.storyboard */; };
 		BD964EB32499D5B700B49C8A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD964EB22499D5B700B49C8A /* GoogleService-Info.plist */; };
 		BD964EB62499DBF200B49C8A /* RemoteDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD964EB52499DBF200B49C8A /* RemoteDatabase.swift */; };
 		BD964EB92499ECA400B49C8A /* ChangePointsModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD964EB82499ECA400B49C8A /* ChangePointsModalViewController.swift */; };
@@ -65,8 +65,8 @@
 		BD964EA62499AF4700B49C8A /* HomeParticipantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeParticipantCell.swift; sourceTree = "<group>"; };
 		BD964EA72499AF4700B49C8A /* HomeParticipantCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeParticipantCell.xib; sourceTree = "<group>"; };
 		BD964EAB2499B34700B49C8A /* Child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Child.swift; sourceTree = "<group>"; };
-		BD964EAE2499BACD00B49C8A /* PropertiesParticipantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertiesParticipantViewController.swift; sourceTree = "<group>"; };
-		BD964EB02499BAD400B49C8A /* PropertiesParticipantViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PropertiesParticipantViewController.storyboard; sourceTree = "<group>"; };
+		BD964EAE2499BACD00B49C8A /* PropertiesChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertiesChildViewController.swift; sourceTree = "<group>"; };
+		BD964EB02499BAD400B49C8A /* PropertiesChildViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PropertiesChildViewController.storyboard; sourceTree = "<group>"; };
 		BD964EB22499D5B700B49C8A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BD964EB52499DBF200B49C8A /* RemoteDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDatabase.swift; sourceTree = "<group>"; };
 		BD964EB82499ECA400B49C8A /* ChangePointsModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePointsModalViewController.swift; sourceTree = "<group>"; };
@@ -147,7 +147,7 @@
 				BD964E87249986A800B49C8A /* Base */,
 				BD964E9024998A6B00B49C8A /* Home */,
 				BD964E982499931D00B49C8A /* AddParticipantModal */,
-				BD964EAD2499BA7E00B49C8A /* PropertiesParticipant */,
+				BD964EAD2499BA7E00B49C8A /* PropertiesChild */,
 				BD964EB72499EC7900B49C8A /* ChangePoints */,
 			);
 			path = Scenes;
@@ -251,13 +251,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		BD964EAD2499BA7E00B49C8A /* PropertiesParticipant */ = {
+		BD964EAD2499BA7E00B49C8A /* PropertiesChild */ = {
 			isa = PBXGroup;
 			children = (
-				BD964EAE2499BACD00B49C8A /* PropertiesParticipantViewController.swift */,
-				BD964EB02499BAD400B49C8A /* PropertiesParticipantViewController.storyboard */,
+				BD964EAE2499BACD00B49C8A /* PropertiesChildViewController.swift */,
+				BD964EB02499BAD400B49C8A /* PropertiesChildViewController.storyboard */,
 			);
-			path = PropertiesParticipant;
+			path = PropertiesChild;
 			sourceTree = "<group>";
 		};
 		BD964EB42499DBD400B49C8A /* RemoteDatabase */ = {
@@ -342,7 +342,7 @@
 				BD964EB32499D5B700B49C8A /* GoogleService-Info.plist in Resources */,
 				BD964E9424998A9000B49C8A /* HomeViewController.storyboard in Resources */,
 				BD964E9C2499938900B49C8A /* AddParticipantModalViewController.storyboard in Resources */,
-				BD964EB12499BAD400B49C8A /* PropertiesParticipantViewController.storyboard in Resources */,
+				BD964EB12499BAD400B49C8A /* PropertiesChildViewController.storyboard in Resources */,
 				BD964E7F249984BE00B49C8A /* LaunchScreen.storyboard in Resources */,
 				BD964E7C249984BE00B49C8A /* Assets.xcassets in Resources */,
 				BD964EBB2499ECC400B49C8A /* ChangePointsModalViewController.storyboard in Resources */,
@@ -405,7 +405,7 @@
 				BD964EB62499DBF200B49C8A /* RemoteDatabase.swift in Sources */,
 				BD964EA52499AD2100B49C8A /* CustomImageView.swift in Sources */,
 				BD964E89249986B700B49C8A /* BaseViewController.swift in Sources */,
-				BD964EAF2499BACD00B49C8A /* PropertiesParticipantViewController.swift in Sources */,
+				BD964EAF2499BACD00B49C8A /* PropertiesChildViewController.swift in Sources */,
 				BD964EA32499ACC100B49C8A /* UIImageView+Extension.swift in Sources */,
 				BD4C80FA249FDF5500AB67C3 /* SceneDelegate.swift in Sources */,
 				BD964EA82499AF4700B49C8A /* HomeParticipantCell.swift in Sources */,

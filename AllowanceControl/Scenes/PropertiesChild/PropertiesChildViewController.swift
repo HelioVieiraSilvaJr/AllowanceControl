@@ -1,5 +1,5 @@
 //
-//  PropertiesParticipantViewController.swift
+//  PropertiesChildViewController.swift
 //  AllowanceControl
 //
 //  Created by Helio Junior on 16/06/20.
@@ -8,15 +8,15 @@
 
 import UIKit
 
-final class PropertiesParticipantViewController: BaseViewController {
+final class PropertiesChildViewController: BaseViewController {
     
     // MARK: Properties
     var child: Child!
     var shouldUpdateData: (() -> Void)?
     
     // MARK: Initializate
-    static func builder(withParticipant participant: Child) -> PropertiesParticipantViewController {
-        let viewController = PropertiesParticipantViewController.instantiate()
+    static func builder(withParticipant participant: Child) -> PropertiesChildViewController {
+        let viewController = PropertiesChildViewController.instantiate()
         viewController.child = participant
         return viewController
     }

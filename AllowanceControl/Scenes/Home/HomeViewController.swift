@@ -98,7 +98,7 @@ extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let child = viewModel.children[indexPath.row]
-        let viewController = PropertiesParticipantViewController.builder(withParticipant: child)
+        let viewController = PropertiesChildViewController.builder(withParticipant: child)
         viewController.shouldUpdateData = { [weak self] in
             self?.viewModel.fetchData()
         }
