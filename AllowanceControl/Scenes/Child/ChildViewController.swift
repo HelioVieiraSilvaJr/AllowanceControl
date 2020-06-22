@@ -11,34 +11,10 @@ import UIKit
 final class ChildViewController: BaseViewController {
 
     // MARK: Properties
-    var methodOpetarion: Method = .add
-    var child: Child?
-    var didAddChild: ((Child) -> Void)?
-    var didEditChild: ((Child) -> Void)?
-    private var colorSelected: ColorPicker? {
-        didSet{
-            viewContent.backgroundColor = UIColor(hex: colorSelected?.colorHex)
-        }
-    }
-    private let pickerData: [ColorPicker] = [
-        ColorPicker(name: "padrão", colorHex: "F2F2F7"),
-        ColorPicker(name: "azul", colorHex: "85E3FF"),
-        ColorPicker(name: "azul pastel", colorHex: "ACE7FF"),
-        ColorPicker(name: "verde", colorHex: "BFFCC6"),
-        ColorPicker(name: "verde pastel", colorHex: "DBFFD6"),
-        ColorPicker(name: "vermelho", colorHex: "FFABAB"),
-        ColorPicker(name: "vermelho pastel", colorHex: "FFCBC1"),
-        ColorPicker(name: "rosa", colorHex: "F6A6FF"),
-        ColorPicker(name: "rosa pastel", colorHex: "FCC2FF"),
-        ColorPicker(name: "amarelo", colorHex: "FFF5BA"),
-        ColorPicker(name: "amarelo pastel", colorHex: "FFFFD1")
-    ]
+    var viewModel: ChildViewModel!
+    var didFinish: (() -> Void)?
     private var pickerColor = UIPickerView()
-    enum Method {
-        case add
-        case edit
-    }
-
+    
     // MARK: Outlets
     @IBOutlet weak var viewOutside: UIView!
     @IBOutlet weak var viewContent: CustomView!
@@ -47,10 +23,9 @@ final class ChildViewController: BaseViewController {
     @IBOutlet weak var edtColor: UITextField!
     
     // MARK: Initializate
-    static func builder(method: Method, child: Child? = nil) -> ChildViewController {
+    static func builder(method: ChildViewModel.Method, child: Child? = nil) -> ChildViewController {
         let viewController = ChildViewController.instantiate()
-        viewController.child = child
-        viewController.methodOpetarion = method
+        viewController.viewModel = ChildViewModel(methodOperation: method, child: child)
         viewController.modalTransitionStyle = .crossDissolve
         viewController.modalPresentationStyle = .overCurrentContext
         return viewController
@@ -72,14 +47,9 @@ final class ChildViewController: BaseViewController {
         let tapOutside = UITapGestureRecognizer(target: self, action: #selector(handlerTapOutside))
         viewOutside.addGestureRecognizer(tapOutside)
         
-        if methodOpetarion == .add {
-            let random = Int.random(in: 0..<pickerData.count)
-            colorSelected = pickerData[random]
-        }
-        else {
-            edtFullName.text = child?.name
-            edtNickname.text = child?.nickname
-            colorSelected = pickerData.filter({ $0.colorHex == child?.colorHex }).first
+        if viewModel.methodOperation == .update {
+            edtFullName.text = viewModel.child?.name
+            edtNickname.text = viewModel.child?.nickname
         }
     }
     
@@ -89,18 +59,13 @@ final class ChildViewController: BaseViewController {
     
     // MARK: Actions
     @IBAction private func handlerButtonDone(_ sender: Any) {
-        guard validateFields() else { return }
+        guard let child = viewModel.validateChild(name: edtFullName.text, nickname: edtNickname.text) else { return }
         
-        if methodOpetarion == .add {
-            let newChild = Child(name: edtFullName.text!, nickname: edtNickname.text!, colorHex: colorSelected?.colorHex)
-            didAddChild?(newChild)
+        viewModel.save(child: child) { [weak self] status in
+            if status {
+                self?.dismiss(animated: true, completion: nil)
+            }
         }
-        else {
-             let child = Child(name: edtFullName.text!, nickname: edtNickname.text!, colorHex: colorSelected?.colorHex)
-            didEditChild?(child)
-        }
-        
-        dismiss(animated: true, completion: nil)
     }
     
     @IBAction private func handlerButtonClose(_ sender: Any) {
@@ -110,37 +75,20 @@ final class ChildViewController: BaseViewController {
     @objc private func handlerTapOutside() {
         self.becomeFirstResponder()
     }
-    
-    // MARK: Helpers
-    private func validateFields() -> Bool {
-        var flag = true
-        
-        if edtFullName.text?.isEmpty ?? true {
-            flag = false
-        }
-        if edtNickname.text?.isEmpty ?? true {
-            flag = false
-        }
-        if colorSelected == nil {
-            flag = false
-        }
-        
-        return flag
-    }
 }
 
-
+// MARK: Extensions
 extension ChildViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerData.count
+        return viewModel.colorsData.count
     }
 
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        let color = pickerData[row]
+        let color = viewModel.colorsData[row]
         let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
         view.backgroundColor = UIColor(hex: color.colorHex)
         let label = UILabel()
@@ -153,9 +101,9 @@ extension ChildViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let color = pickerData[row]
+        let color = viewModel.colorsData[row]
         viewContent.backgroundColor = UIColor(hex: color.colorHex)
         edtColor.text = color.name
-        colorSelected = color
+        viewModel.colorSelected = color
     }
 }

@@ -22,9 +22,4 @@ final class HomeViewModel {
             self?.shouldReloadHome?()
         }
     }
-    
-    func addChild(_ child: Child) {
-        print("==> Add Child: \(child)")
-    }
-    
 }

@@ -46,9 +46,6 @@ final class HomeViewController: BaseViewController {
     //MARK: Actions
     @objc func handlerAddElement() {
         let vc = ChildViewController.builder(method: .add)
-        vc.didAddChild = { [weak self] child in
-            self?.viewModel.addChild(child)
-        }
         present(vc, animated: true, completion: nil)
     }
     
