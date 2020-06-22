@@ -1,5 +1,5 @@
 //
-//  AddParticipantModalViewController.swift
+//  ChildViewController.swift
 //  AllowanceControl
 //
 //  Created by Helio Junior on 16/06/20.
@@ -8,25 +8,24 @@
 
 import UIKit
 
-class AddParticipantModalViewBuilder {
-    func builder() -> AddParticipantModalViewController {
-        let viewController = AddParticipantModalViewController.instantiate()
+final class ChildViewController: BaseViewController {
+
+    // MARK: Properties
+    var didAddParticipant: ((Child) -> Void)?
+    
+    // MARK: Outlets
+    @IBOutlet weak var edtFullName: UITextField!
+    @IBOutlet weak var edtNickname: UITextField!
+    
+    // MARK: Initializate
+    static func builder() -> ChildViewController {
+        let viewController = ChildViewController.instantiate()
         viewController.modalTransitionStyle = .crossDissolve
         viewController.modalPresentationStyle = .overCurrentContext
         return viewController
     }
-}
-
-final class AddParticipantModalViewController: BaseViewController {
-
-    //MARK: Properties
-    var didAddParticipant: ((Child) -> Void)?
     
-    //MARK: Outlets
-    @IBOutlet weak var edtFullName: UITextField!
-    @IBOutlet weak var edtNickname: UITextField!
-    
-    //MARK: Overrides
+    // MARK: Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,7 +35,7 @@ final class AddParticipantModalViewController: BaseViewController {
         edtNickname.text = "Helio"
     }
     
-    //MARK: Actions
+    // MARK: Actions
     @IBAction func handlerButtonDone(_ sender: Any) {
         guard validateFields() else { return }
         
@@ -49,7 +48,7 @@ final class AddParticipantModalViewController: BaseViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    //MARK: Helpers
+    // MARK: Helpers
     func validateFields() -> Bool {
         var flag = true
         

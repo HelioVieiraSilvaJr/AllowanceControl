@@ -45,7 +45,7 @@ final class HomeViewController: BaseViewController {
     
     //MARK: Actions
     @objc func handlerAddElement() {
-        let vc = AddParticipantModalViewBuilder().builder()
+        let vc = ChildViewController.builder()
         vc.didAddParticipant = { [weak self] participant in
             self?.viewModel.children.append(participant)
             RemoteDatabase.shared.addNewParticipant(participant)

@@ -24,8 +24,8 @@
 		BD964E8F2499885F00B49C8A /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD964E8E2499885F00B49C8A /* UIViewController+Extension.swift */; };
 		BD964E9224998A8100B49C8A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD964E9124998A8100B49C8A /* HomeViewController.swift */; };
 		BD964E9424998A9000B49C8A /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD964E9324998A9000B49C8A /* HomeViewController.storyboard */; };
-		BD964E9A2499937000B49C8A /* AddParticipantModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD964E992499937000B49C8A /* AddParticipantModalViewController.swift */; };
-		BD964E9C2499938900B49C8A /* AddParticipantModalViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD964E9B2499938900B49C8A /* AddParticipantModalViewController.storyboard */; };
+		BD964E9A2499937000B49C8A /* ChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD964E992499937000B49C8A /* ChildViewController.swift */; };
+		BD964E9C2499938900B49C8A /* ChildViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD964E9B2499938900B49C8A /* ChildViewController.storyboard */; };
 		BD964EA12499A2C800B49C8A /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD964EA02499A2C800B49C8A /* CustomView.swift */; };
 		BD964EA32499ACC100B49C8A /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD964EA22499ACC100B49C8A /* UIImageView+Extension.swift */; };
 		BD964EA52499AD2100B49C8A /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD964EA42499AD2100B49C8A /* CustomImageView.swift */; };
@@ -63,8 +63,8 @@
 		BD964E8E2499885F00B49C8A /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		BD964E9124998A8100B49C8A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		BD964E9324998A9000B49C8A /* HomeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeViewController.storyboard; sourceTree = "<group>"; };
-		BD964E992499937000B49C8A /* AddParticipantModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddParticipantModalViewController.swift; sourceTree = "<group>"; };
-		BD964E9B2499938900B49C8A /* AddParticipantModalViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddParticipantModalViewController.storyboard; sourceTree = "<group>"; };
+		BD964E992499937000B49C8A /* ChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildViewController.swift; sourceTree = "<group>"; };
+		BD964E9B2499938900B49C8A /* ChildViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChildViewController.storyboard; sourceTree = "<group>"; };
 		BD964EA02499A2C800B49C8A /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		BD964EA22499ACC100B49C8A /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		BD964EA42499AD2100B49C8A /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
@@ -243,8 +243,8 @@
 		BD964E982499931D00B49C8A /* AddParticipantModal */ = {
 			isa = PBXGroup;
 			children = (
-				BD964E992499937000B49C8A /* AddParticipantModalViewController.swift */,
-				BD964E9B2499938900B49C8A /* AddParticipantModalViewController.storyboard */,
+				BD964E992499937000B49C8A /* ChildViewController.swift */,
+				BD964E9B2499938900B49C8A /* ChildViewController.storyboard */,
 			);
 			path = AddParticipantModal;
 			sourceTree = "<group>";
@@ -358,7 +358,7 @@
 				BD4C80FC249FE16400AB67C3 /* Main.storyboard in Resources */,
 				BD964EB32499D5B700B49C8A /* GoogleService-Info.plist in Resources */,
 				BD964E9424998A9000B49C8A /* HomeViewController.storyboard in Resources */,
-				BD964E9C2499938900B49C8A /* AddParticipantModalViewController.storyboard in Resources */,
+				BD964E9C2499938900B49C8A /* ChildViewController.storyboard in Resources */,
 				BD964EB12499BAD400B49C8A /* PropertiesChildViewController.storyboard in Resources */,
 				BD964E7F249984BE00B49C8A /* LaunchScreen.storyboard in Resources */,
 				BD964E7C249984BE00B49C8A /* Assets.xcassets in Resources */,
@@ -428,7 +428,7 @@
 				BD964EA32499ACC100B49C8A /* UIImageView+Extension.swift in Sources */,
 				BD4C80FA249FDF5500AB67C3 /* SceneDelegate.swift in Sources */,
 				BD964EA82499AF4700B49C8A /* HomeParticipantCell.swift in Sources */,
-				BD964E9A2499937000B49C8A /* AddParticipantModalViewController.swift in Sources */,
+				BD964E9A2499937000B49C8A /* ChildViewController.swift in Sources */,
 				BD4C8102249FFCFB00AB67C3 /* HomeDatabase.swift in Sources */,
 				BD964EA12499A2C800B49C8A /* CustomView.swift in Sources */,
 				BD34140B24A0417400BFF204 /* PropertiesChildDatabase.swift in Sources */,
